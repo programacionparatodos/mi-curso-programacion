@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programación Para Todos | Cursos Desde Cero</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+</head>
+<body class="bg-slate-950 text-slate-100 font-sans min-h-screen selection:bg-amber-500 selection:text-slate-950">
+
+    
+    <div class="backdrop-blur-md bg-slate-950/80 border-b border-amber-500/20 py-2.5 px-4 text-center text-xs md:text-sm tracking-wide shadow-2xl relative z-50">
+        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-center gap-2">
+            <span class="text-slate-400 font-medium flex items-center gap-1.5">
+                <span class="inline-flex h-2 w-2 animate-ping rounded-full bg-amber-400 opacity-75"></span>
+                <i class="bi bi-rocket-takeoff-fill text-amber-400"></i> ¡Inscripciones abiertas! El curso inicia el 14 de Sep.
+            </span>
+            <span class="hidden sm:inline text-slate-600">|</span>
+            <div class="text-slate-200 font-medium">
+                Tiempo restante: 
+                <span id="countdown" class="font-mono bg-amber-500/10 border border-amber-500/30 text-amber-400 px-2 py-0.5 rounded-md ml-1 shadow-inner text-xs tracking-wider">
+                    Calculando...
+                </span>
+            </div>
+        </div>
+    </div>
+
+    
+    <header class="max-w-3xl mx-auto px-4 pt-12 pb-8 text-center relative">
+        <h1 class="font-extrabold tracking-tight leading-none">
+           
+            <span class="block py-1 text-slate-100 text-4xl sm:text-5xl md:text-6xl">
+                Curso de Programación
+            </span>
+            
+            <span class="block mt-2 bg-gradient-to-r from-amber-400 via-orange-500 to-amber-600 bg-clip-text text-transparent drop-shadow-[0_2px_10px_rgba(245,158,11,0.15)] text-3xl sm:text-4xl md:text-5xl">
+                Desde Cero
+            </span>
+        </h1>
+        <p class="text-slate-400 max-w-xl mx-auto mt-6 text-sm md:text-base leading-relaxed font-normal">
+            Domina la lógica pura y la sintaxis de los lenguajes más demandados del mercado tecnológico con clases 100% prácticas y mentoría en vivo.
+        </p>
+    </header>
+
+
+    
+    <section class="max-w-4xl mx-auto px-4 mb-12">
+        <div class="backdrop-blur-md bg-slate-900/60 border border-slate-800 rounded-2xl p-6 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-4">
+            <div class="flex items-center gap-3">
+                <span class="text-2xl text-amber-500 flex items-center justify-center"><i class="bi bi-globe2"></i></span>
+                <div>
+                    <h3 class="font-bold text-slate-200 text-sm md:text-base">Personalizar Información</h3>
+                    <p class="text-xs text-slate-400">Selecciona tu ubicación para adaptar precios, monedas y horarios locales.</p>
+                </div>
+            </div>
+            <select id="country-select" class="w-full md:w-64 bg-slate-950 border border-slate-700 rounded-xl px-4 py-2.5 text-slate-200 font-medium focus:outline-none focus:border-amber-500 transition-colors cursor-pointer text-sm">
+                <option value="BO" selected>Bolivia (BOB - Bs)</option>
+                <option value="PE">Perú (PEN - S/.)</option>
+                <option value="CO">Colombia (COP - $)</option>
+                <option value="CL">Chile (CLP - $)</option>
+                <option value="EC">Ecuador (USD - $)</option>
+                <option value="VE">Venezuela (USD - $)</option>
+                <option value="AR">Argentina (ARS - $)</option>
+                <option value="PY">Paraguay (USD - $)</option>
+                <option value="UY">Uruguay (USD - $)</option>
+                <option value="MX">México (MXN - $)</option>
+                <option value="GT">Guatemala (USD - $)</option>
+                <option value="HN">Honduras (USD - $)</option>
+                <option value="SV">El Salvador (USD - $)</option>
+                <option value="NI">Nicaragua (USD - $)</option>
+                <option value="CR">Costa Rica (USD - $)</option>
+                <option value="PA">Panamá (USD - $)</option>
+                <option value="DO">Rep. Dominicana (USD - $)</option>
+                <option value="PR">Puerto Rico (USD - $)</option>
+                <option value="CU">Cuba (USD - $)</option>
+                <option value="EXT">Otro país hispano (USD - $)</option>
+            </select>
+        </div>
+    </section>
+
+    
+    <main class="max-w-5xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-3 gap-8 pb-12">
+        
+        <section class="lg:col-span-2 space-y-8">
+
+            
+            <div class="backdrop-blur-md bg-slate-900/60 border border-slate-800 rounded-2xl shadow-2xl overflow-hidden p-[1px] group hover:bg-gradient-to-r hover:from-blue-500 hover:to-amber-400 hover:border-transparent transition-all duration-300">
+                <div class="bg-slate-950/95 w-full h-full rounded-[15px] overflow-hidden">
+                    <!-- Mac Top Bar -->
+                    <div class="bg-slate-950 px-4 py-3 border-b border-slate-800/60 flex items-center justify-between">
+                        <div class="flex items-center gap-1.5">
+                            <span class="w-3 h-3 rounded-full bg-rose-500 inline-block"></span>
+                            <span class="w-3 h-3 rounded-full bg-amber-500 inline-block"></span>
+                            <span class="w-3 h-3 rounded-full bg-emerald-500 inline-block"></span>
+                        </div>
+                        <span class="text-xs font-mono text-slate-500 tracking-wider flex items-center gap-1.5">
+                            <i class="bi bi-terminal-jsx text-slate-600"></i> python_script.py
+                        </span>
+                    </div>
+                    
+                    
+                    <div class="p-6 md:p-8">
+                        <div class="flex justify-between items-start mb-4">
+    <div>
+        <span class="text-xs font-bold uppercase tracking-widest text-amber-400 bg-amber-500/10 px-2.5 py-1 rounded-md flex items-center gap-1 w-max">
+            <i class="bi bi-fire text-amber-500"></i> Grupo Solicitado
+        </span>
+        <h2 class="text-3xl font-extrabold mt-2 text-slate-100">Python</h2>
+    </div>
+    
+    <img src="img/python.png" alt="Logo de Python" class="w-16 h-16 object-contain drop-shadow-[0_0_8px_rgba(55,115,160,0.2)]">
+</div>
+                        
+                        <p class="text-sm text-slate-400 mb-6">Aprende el lenguaje de mayor crecimiento mundial. Ideal para automatización de tareas, análisis de datos y desarrollo ágil desde cero.</p>
+                        
+                        <div class="bg-slate-950 border border-slate-800/80 rounded-xl p-3 text-xs flex items-center justify-between text-slate-300 mb-6">
+                            <span class="flex items-center gap-1.5">
+                                <i class="bi bi-bar-chart-line text-amber-500"></i> <strong>Carga Académica:</strong> 30 Horas Prácticas
+                            </span>
+                            <span class="text-amber-400 font-bold uppercase tracking-wider bg-amber-500/10 px-2 py-0.5 rounded">20 Clases</span>
+                        </div>
+
+                        
+                        <details class="group/syllabus bg-slate-900/40 rounded-xl border border-slate-800/60 overflow-hidden cursor-pointer mb-6">
+                            <summary class="list-none p-3 font-semibold text-xs text-slate-300 flex justify-between items-center select-none group-open/syllabus:text-amber-400">
+                                <span class="flex items-center gap-2"><i class="bi bi-folder2-open text-amber-500"></i> Ver Contenido del Curso</span>
+                                <span class="transition-transform group-open/syllabus:rotate-180 text-[10px]"><i class="bi bi-chevron-down"></i></span>
+                            </summary>
+                            <div class="p-4 pt-2 text-xs text-slate-400 border-t border-slate-900/60 space-y-2 font-sans"> 
+  <p><i class="bi bi-chevron-right text-amber-500 text-[10px]"></i> <strong>Fundamentos e I/O:</strong> Variables, tipos dinámicos, operadores y formateo avanzado con f-strings en salida de datos.</p> 
+  <p><i class="bi bi-chevron-right text-amber-500 text-[10px]"></i> <strong>Estructuras de Control:</strong> Flujos condicionales (if-elif-else), ciclos (while/for-in) y control de bucles (break/continue).</p> 
+  <p><i class="bi bi-chevron-right text-amber-500 text-[10px]"></i> <strong>Estructuras de Datos:</strong> Listas mutables (indexación, slicing, .split), diccionarios clave-valor y colecciones bidimensionales.</p> 
+  <p><i class="bi bi-chevron-right text-amber-500 text-[10px]"></i> <strong>Modularidad y Robustez:</strong> Funciones (`def`), parámetros, retorno de valores y control de errores con bloques try-except.</p> 
+  <p><i class="bi bi-chevron-right text-amber-500 text-[10px]"></i> <strong>Persistencia en JSON:</strong> Lectura y escritura de datos estructurados en archivos locales mediante el módulo nativo json.</p> 
+</div>
+
+
+                        </details>
+
+                        <div class="border-t border-slate-800/80 pt-6 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                            <div class="space-y-1">
+                                <p class="text-xs text-slate-500 uppercase font-bold tracking-wider">Días y Horarios locales</p>
+                                <p class="text-sm text-slate-300 flex items-center gap-1.5"><i class="bi bi-calendar3 text-slate-400"></i> Lunes, Miércoles y Viernes</p>
+                                <p class="text-sm text-slate-400 flex items-center gap-1.5"><i class="bi bi-clock text-slate-500"></i> <span id="python-time" class="font-medium text-slate-200">22:00 - 23:30 (Hora BO)</span></p>
+                            </div>
+                            <div class="text-left sm:text-right">
+                                <p class="text-xs text-slate-500 uppercase font-bold tracking-wider">Inversión Oficial</p>
+                                <p class="text-3xl font-black text-amber-500 font-mono" id="python-price">250 BOB</p>
+                            </div>
+                        </div>
+
+                        <a id="python-btn" href="#" target="_blank" class="mt-6 w-full bg-slate-100 hover:bg-amber-500 hover:text-slate-950 text-slate-950 font-bold py-3 px-6 rounded-xl flex items-center justify-center gap-2 transition-all duration-300 transform active:scale-98 text-sm md:text-base shadow-lg shadow-black/40">
+                            <i class="bi bi-whatsapp"></i> Inscribirme
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="backdrop-blur-md bg-slate-900/60 border border-slate-800 rounded-2xl shadow-2xl overflow-hidden p-[1px] group hover:bg-gradient-to-r hover:from-blue-600 hover:to-cyan-500 hover:border-transparent transition-all duration-300">
+                <div class="bg-slate-950/95 w-full h-full rounded-[15px] overflow-hidden">
+                    <!-- Mac Top Bar -->
+                    <div class="bg-slate-950 px-4 py-3 border-b border-slate-800/60 flex items-center justify-between">
+                        <div class="flex items-center gap-1.5">
+                            <span class="w-3 h-3 rounded-full bg-rose-500 inline-block"></span>
+                            <span class="w-3 h-3 rounded-full bg-amber-500 inline-block"></span>
+                            <span class="w-3 h-3 rounded-full bg-emerald-500 inline-block"></span>
+                        </div>
+                        <span class="text-xs font-mono text-slate-500 tracking-wider flex items-center gap-1.5">
+                            <i class="bi bi-file-earmark-code text-slate-600"></i> main.cpp
+                        </span>
+                    </div>
+                    
+                    
+                    <div class="p-6 md:p-8">
+                        <div class="flex justify-between items-start mb-4">
+    <div>
+        <span class="text-xs font-bold uppercase tracking-widest text-blue-400 bg-blue-500/10 px-2.5 py-1 rounded-md flex items-center gap-1 w-max">
+            <i class="bi bi-lightning-charge text-blue-400"></i> Alto Rendimiento
+        </span>
+        <h2 class="text-3xl font-extrabold mt-2 text-slate-100">C++</h2>
+    </div>
+    
+    <img src="img/cpp.png" alt="Logo de C++" class="w-14 h-14 object-contain drop-shadow-[0_0_8px_rgba(0,104,181,0.2)]">
+</div>
+                        
+                        <p class="text-sm text-slate-400 mb-6">Domina el control de la memoria y la velocidad. Forja bases ultra sólidas para algoritmos y programación competitiva desde cero.</p>
+                        
+                        <div class="bg-slate-950 border border-slate-800/80 rounded-xl p-3 text-xs flex items-center justify-between text-slate-300 mb-6">
+                            <span class="flex items-center gap-1.5">
+                                <i class="bi bi-bar-chart-line text-blue-400"></i> <strong>Carga Académica:</strong> 30 Horas Prácticas
+                            </span>
+                            <span class="text-blue-400 font-bold uppercase tracking-wider bg-blue-400/10 px-2 py-0.5 rounded">15 Clases</span>
+                        </div>
+
+                        
+                        <details class="group/syllabus bg-slate-900/40 rounded-xl border border-slate-800/60 overflow-hidden cursor-pointer mb-6">
+                            <summary class="list-none p-3 font-semibold text-xs text-slate-300 flex justify-between items-center select-none group-open/syllabus:text-blue-400">
+                                <span class="flex items-center gap-2"><i class="bi bi-folder2-open text-blue-400"></i> Ver Contenido del Curso</span>
+                                <span class="transition-transform group-open/syllabus:rotate-180 text-[10px]"><i class="bi bi-chevron-down"></i></span>
+                            </summary>
+                            <div class="p-4 pt-2 text-xs text-slate-400 border-t border-slate-900/60 space-y-2 font-sans">
+    <p><i class="bi bi-chevron-right text-blue-400 text-[10px]"></i> <strong>Fundamentos:</strong> Variables, constantes, tipado fuerte (int, float, bool, char), entrada/salida (`cin`/`cout`), operadores y expresiones.</p>
+    <p><i class="bi bi-chevron-right text-blue-400 text-[10px]"></i> <strong>Estructuras de Control:</strong> Flujos condicionales (`if`/`else if`/`switch`) y repetitivas (`while`/`do-while`/`for`).</p>
+    <p><i class="bi bi-chevron-right text-blue-400 text-[10px]"></i> <strong>Manejo de Cadenas:</strong> Objetos `std::string`, medición de longitud (`.length()`), subcadenas (`.substr()`) y recorrido indexado como vector.</p>
+    <p><i class="bi bi-chevron-right text-blue-400 text-[10px]"></i> <strong>Estructuras de Datos:</strong> Arreglos estáticos unidimensionales (vectores numéricos) y bidimensionales (matrices de datos).</p>
+    <p><i class="bi bi-chevron-right text-blue-400 text-[10px]"></i> <strong>Modularidad:</strong> Prototipos y definición de funciones, pasaje de parámetros (por valor y referencia) y retorno de valores.</p>
+</div>
+
+                        </details>
+
+                        <div class="border-t border-slate-800/80 pt-6 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                            <div class="space-y-1">
+                                <p class="text-xs text-slate-500 uppercase font-bold tracking-wider">Días y Horarios locales</p>
+                                <p class="text-sm text-slate-300 flex items-center gap-1.5"><i class="bi bi-calendar3 text-slate-400"></i> Martes y Jueves</p>
+                                <p class="text-sm text-slate-400 flex items-center gap-1.5"><i class="bi bi-clock text-slate-500"></i> <span id="cpp-time" class="font-medium text-slate-200">19:30 - 21:30 (Hora BO)</span></p>
+                            </div>
+                            <div class="text-left sm:text-right">
+                                <p class="text-xs text-slate-500 uppercase font-bold tracking-wider">Inversión Oficial</p>
+                                <p class="text-3xl font-black text-blue-400 font-mono" id="cpp-price">250 BOB</p>
+                            </div>
+                        </div>
+
+                        <a id="cpp-btn" href="#" target="_blank" class="mt-6 w-full bg-slate-100 hover:bg-blue-500 hover:text-slate-100 text-slate-950 font-bold py-3 px-6 rounded-xl flex items-center justify-center gap-2 transition-all duration-300 transform active:scale-98 text-sm md:text-base shadow-lg shadow-black/40">
+                            <i class="bi bi-whatsapp"></i> Inscribirme
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="backdrop-blur-md bg-slate-900/60 border border-slate-800 rounded-2xl shadow-2xl overflow-hidden p-[1px] group hover:bg-gradient-to-r hover:from-orange-500 hover:to-rose-600 hover:border-transparent transition-all duration-300">
+                <div class="bg-slate-950/95 w-full h-full rounded-[15px] overflow-hidden">
+                    <!-- Mac Top Bar -->
+                    <div class="bg-slate-950 px-4 py-3 border-b border-slate-800/60 flex items-center justify-between">
+                        <div class="flex items-center gap-1.5">
+                            <span class="w-3 h-3 rounded-full bg-rose-500 inline-block"></span>
+                            <span class="w-3 h-3 rounded-full bg-amber-500 inline-block"></span>
+                            <span class="w-3 h-3 rounded-full bg-emerald-500 inline-block"></span>
+                        </div>
+                        <span class="text-xs font-mono text-slate-500 tracking-wider flex items-center gap-1.5">
+                            <i class="bi bi-cup-hot text-slate-600"></i> Main.java
+                        </span>
+                    </div>
+                    
+                    
+                    <div class="p-6 md:p-8">
+                        <div class="flex justify-between items-start mb-4">
+    <div>
+        <span class="text-xs font-bold uppercase tracking-widest text-orange-400 bg-orange-500/10 px-2.5 py-1 rounded-md flex items-center gap-1 w-max">
+            <i class="bi bi-building-gear text-orange-400"></i> Estándar Empresarial
+        </span>
+        <h2 class="text-3xl font-extrabold mt-2 text-slate-100">Java</h2>
+    </div>
+
+    <img src="img/java.png" alt="Logo de Java" class="w-17 h-17 object-contain drop-shadow-[0_0_8px_rgba(225,31,38,0.2)]">
+</div>
+                        
+                        <p class="text-sm text-slate-400 mb-6">El pilar del desarrollo corporativo y bancario. Aprende un tipado rígido y estructurado ideal para proyectos complejos.</p>
+                        
+                        <div class="bg-slate-950 border border-slate-800/80 rounded-xl p-3 text-xs flex items-center justify-between text-slate-300 mb-6">
+                            <span class="flex items-center gap-1.5">
+                                <i class="bi bi-bar-chart-line text-orange-400"></i> <strong>Carga Académica:</strong> 30 Horas Prácticas
+                            </span>
+                            <span class="text-orange-400 font-bold uppercase tracking-wider bg-orange-400/10 px-2 py-0.5 rounded">15 Clases</span>
+                        </div>
+
+                        
+                        <details class="group/syllabus bg-slate-900/40 rounded-xl border border-slate-800/60 overflow-hidden cursor-pointer mb-6">
+                            <summary class="list-none p-3 font-semibold text-xs text-slate-300 flex justify-between items-center select-none group-open/syllabus:text-orange-400">
+                                <span class="flex items-center gap-2"><i class="bi bi-folder2-open text-orange-400"></i> Ver Contenido del Curso</span>
+                                <span class="transition-transform group-open/syllabus:rotate-180 text-[10px]"><i class="bi bi-chevron-down"></i></span>
+                            </summary>
+                            <div class="p-4 pt-2 text-xs text-slate-400 border-t border-slate-900/60 space-y-2 font-sans">
+    <p><i class="bi bi-chevron-right text-orange-400 text-[10px]"></i> <strong>Fundamentos:</strong> Variables, constantes, tipado fuertemente estático, entrada/salida (`Scanner`/`System.out`), operadores y expresiones.</p>
+    <p><i class="bi bi-chevron-right text-orange-400 text-[10px]"></i> <strong>Estructuras de Control:</strong> Flujos secuenciales, condicionales (`if`/`else`/`switch`) y repetitivas (`while`/`do-while`/`for`).</p>
+    <p><i class="bi bi-chevron-right text-orange-400 text-[10px]"></i> <strong>Manejo de Cadenas:</strong> Clase `String`, medición (`.length()`), subcadenas (`.substring()`), comparaciones seguras (`.equals()`) y recorrido por caracteres.</p>
+    <p><i class="bi bi-chevron-right text-orange-400 text-[10px]"></i> <strong>Estructuras de Datos:</strong> Arreglos estáticos unidimensionales (vectores), bidimensionales (matrices) e introducción a colecciones dinámicas (`ArrayList`).</p>
+    <p><i class="bi bi-chevron-right text-orange-400 text-[10px]"></i> <strong>Modularidad:</strong> Estructura de métodos estáticos (`static`), paso de parámetros por valor, retorno de datos y ámbito de variables.</p>
+</div>
+
+                        </details>
+
+                        <div class="border-t border-slate-800/80 pt-6 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                            <div class="space-y-1">
+                                <p class="text-xs text-slate-500 uppercase font-bold tracking-wider">Días y Horarios locales</p>
+                                <p class="text-sm text-slate-300 flex items-center gap-1.5"><i class="bi bi-calendar3 text-slate-400"></i> Lunes y Miércoles</p>
+                                <p class="text-sm text-slate-400 flex items-center gap-1.5"><i class="bi bi-clock text-slate-500"></i> <span id="java-time" class="font-medium text-slate-200">19:30 - 21:30 (Hora BO)</span></p>
+                            </div>
+                            <div class="text-left sm:text-right">
+                                <p class="text-xs text-slate-500 uppercase font-bold tracking-wider">Inversión Oficial</p>
+                                <p class="text-3xl font-black text-orange-400 font-mono" id="java-price">250 BOB</p>
+                            </div>
+                        </div>
+
+                        <a id="java-btn" href="#" target="_blank" class="mt-6 w-full bg-slate-100 hover:bg-orange-500 hover:text-slate-100 text-slate-950 font-bold py-3 px-6 rounded-xl flex items-center justify-center gap-2 transition-all duration-300 transform active:scale-98 text-sm md:text-base shadow-lg shadow-black/40">
+                            <i class="bi bi-whatsapp"></i> Inscribirme
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+        
+        <aside class="space-y-8">
+            
+            
+            <div class="backdrop-blur-md bg-slate-900/60 border border-slate-800 rounded-2xl p-6 shadow-2xl">
+                <div class="flex items-center gap-2 text-slate-200 font-bold text-lg mb-4 pb-2 border-b border-slate-800">
+                    <span class="text-amber-500"><i class="bi bi-credit-card-2-front-fill"></i></span>
+                    <h3 class="text-base">Métodos de Pago</h3>
+                </div>
+                <div id="payment-container" class="space-y-4 text-sm text-slate-400">
+                    <p class="text-xs animate-pulse">Detectando ubicación...</p>
+                </div>
+            </div>
+
+            
+            <div class="backdrop-blur-md bg-slate-900/60 border border-slate-800 rounded-2xl p-6 shadow-2xl">
+                <div class="flex items-center gap-2 text-slate-200 font-bold text-lg mb-4 pb-2 border-b border-slate-800">
+                    <span class="text-amber-500"><i class="bi bi-laptop"></i></span>
+                    <h3 class="text-base">Requisitos Mínimos</h3>
+                </div>
+                <p class="text-xs md:text-sm text-slate-400 leading-relaxed">
+    Al ser programas diseñados desde el primer paso, solo necesitas una computadora de escritorio o laptop básica (mínimo 4GB de RAM) y acceso a internet estable para seguir la transmisión en vivo. <strong>Nuestra metodología interactiva garantiza que asimiles la lógica de programación con facilidad, transformándote en creador de tecnología sin importar tu profesión o experiencia previa.</strong>
+</p>
+
+            </div>
+
+            
+            <div class="backdrop-blur-md bg-slate-900/60 border border-slate-800 rounded-2xl p-6 shadow-2xl">
+                <div class="flex items-center gap-2 text-slate-200 font-bold text-lg mb-4 pb-2 border-b border-slate-800">
+                    <span class="text-amber-500"><i class="bi bi-question-circle-fill"></i></span>
+                    <h3 class="text-base">Preguntas Frecuentes</h3>
+                </div>
+                <div class="space-y-3">
+                    
+                    <details class="group bg-slate-950 rounded-xl border border-slate-800/60 overflow-hidden cursor-pointer">
+                        <summary class="list-none p-3 font-semibold text-xs md:text-sm text-slate-300 flex justify-between items-center select-none group-open:text-amber-400">
+                            ¿Las clases quedan grabadas?
+                            <span class="transition-transform group-open:rotate-180 text-[10px]"><i class="bi bi-chevron-down"></i></span>
+                        </summary>
+                        <p class="p-3 pt-0 text-xs text-slate-400 leading-relaxed border-t border-slate-900/60">
+                            Sí, absolutamente todas las sesiones en vivo se graban y tendrás acceso completo de por vida para repasarlas cuando quieras.
+                        </p>
+                    </details>
+                    
+                    
+                    <details class="group bg-slate-950 rounded-xl border border-slate-800/60 overflow-hidden cursor-pointer">
+                        <summary class="list-none p-3 font-semibold text-xs md:text-sm text-slate-300 flex justify-between items-center select-none group-open:text-amber-400">
+                            ¿Se entrega certificado?
+                            <span class="transition-transform group-open:rotate-180 text-[10px]"><i class="bi bi-chevron-down"></i></span>
+                        </summary>
+                        <p class="p-3 pt-0 text-xs text-slate-400 leading-relaxed border-t border-slate-900/60">
+                            No emitimos certificados formales. Nos enfocamos al 100% en el desarrollo de tus habilidades prácticas reales y la resolución independiente de problemas lógicos aplicados.
+                        </p>
+                    </details>
+
+                   
+                    <details class="group bg-slate-950 rounded-xl border border-slate-800/60 overflow-hidden cursor-pointer">
+                        <summary class="list-none p-3 font-semibold text-xs md:text-sm text-slate-300 flex justify-between items-center select-none group-open:text-amber-400">
+                            ¿Cuál es el proceso de registro?
+                            <span class="transition-transform group-open:rotate-180 text-[10px]"><i class="bi bi-chevron-down"></i></span>
+                        </summary>
+                        <p class="p-3 pt-0 text-xs text-slate-400 leading-relaxed border-t border-slate-900/60">
+                            Es simple: pulsas el botón del curso de tu interés, coordinas el pago por WhatsApp con el docente y, tras adjuntar tu comprobante de depósito, recibirás el formulario oficial de inscripción.
+                        </p>
+                    </details>
+                </div>
+            </div>
+
+        </aside>
+
+    </main>
+
+    
+    <section class="max-w-5xl mx-auto px-4 pb-20">
+        <div class="backdrop-blur-md bg-slate-900/60 border border-slate-800 rounded-2xl shadow-2xl overflow-hidden">
+            
+            <div class="bg-slate-950 px-4 py-3 border-b border-slate-800 flex items-center justify-between">
+                <div class="flex items-center gap-1.5">
+                    <span class="w-3 h-3 rounded-full bg-rose-500 inline-block"></span>
+                    <span class="w-3 h-3 rounded-full bg-amber-500 inline-block"></span>
+                    <span class="w-3 h-3 rounded-full bg-emerald-500 inline-block"></span>
+                </div>
+                <span class="text-xs font-mono text-slate-500 tracking-wider flex items-center gap-1.5">
+                    <i class="bi bi-calendar-event"></i> cronograma_clases.calendar
+                </span>
+            </div>
+            
+            <div class="p-6">
+                
+                <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 mb-6 pb-4 border-b border-slate-800/60">
+                    <div>
+                        <h3 class="text-xl font-bold text-slate-100 flex items-center gap-2">
+                            <i class="bi bi-calendar-check text-amber-400"></i> Cronograma de Clases Vivo
+                        </h3>
+                        <p class="text-xs text-slate-400">Selecciona un mes y tu lenguaje para visualizar tus días exactos de sesiones en vivo.</p>
+                    </div>
+                    
+                    
+                    <div class="flex flex-wrap gap-2 items-center">
+                        
+                        <div class="bg-slate-950 border border-slate-800 rounded-xl p-1 flex gap-1 text-xs">
+                            <button id="btn-sept" class="px-3 py-1.5 rounded-lg bg-amber-500 text-slate-950 font-bold transition-all" onclick="setMonth('SEP')">Septiembre</button>
+                            <button id="btn-oct" class="px-3 py-1.5 rounded-lg text-slate-400 font-medium hover:text-slate-200 transition-all" onclick="setMonth('OCT')">Octubre / Nov</button>
+                        </div>
+                        <div class="bg-slate-950 border border-slate-800 rounded-xl p-1 flex gap-1 text-xs">
+                            <button id="btn-lang-python" class="px-3 py-1.5 rounded-lg bg-amber-500 text-slate-950 font-bold transition-all" onclick="setLanguage('python')">Python</button>
+                            <button id="btn-lang-cpp" class="px-3 py-1.5 rounded-lg text-slate-400 font-medium hover:text-slate-200 transition-all" onclick="setLanguage('cpp')">C++</button>
+                            <button id="btn-lang-java" class="px-3 py-1.5 rounded-lg text-slate-400 font-medium hover:text-slate-200 transition-all" onclick="setLanguage('java')">Java</button>
+                        </div>
+                    </div>
+                </div>
+                
+              
+                <div class="bg-slate-950/60 border border-slate-800/80 rounded-xl p-4">
+                    <div class="grid grid-cols-7 gap-1 text-center text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">
+                        <div>Do</div><div>Lu</div><div>Ma</div><div>Mi</div><div>Ju</div><div>Vi</div><div>Sá</div>
+                    </div>
+                    <div id="calendar-grid" class="grid grid-cols-7 gap-1 text-center text-sm">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
