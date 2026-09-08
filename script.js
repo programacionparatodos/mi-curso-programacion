@@ -229,9 +229,6 @@ function updateInterface(countryKey) {
 }
 
 
-
-
-
 // FUNCIÓN PARA GENERAR LOS ENLACES DINÁMICOS DE CONTACTO
 function updateWhatsAppLinks(data) {
     const javaText = "Hola, soy de " + data.name + ", me interesa el curso de Java y quiero inscribirme. ¿Me podría facilitar los métodos de pago?";
