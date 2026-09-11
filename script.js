@@ -115,9 +115,9 @@ function updateWhatsAppLinks(data) {
     const cppText = "Hola, soy de " + data.name + ", me interesa el curso de C++ y quiero inscribirme. ¿Me podría facilitar los métodos de pago?";
     const pythonText = "Hola, soy de " + data.name + ", me interesa el curso de Python y quiero inscribirme. ¿Me podría facilitar los métodos de pago?";
 
-    if(document.getElementById('java-btn')) document.getElementById('java-btn').href = "https://wa.me" + WHATSAPP_PHONE + "?text=" + encodeURIComponent(javaText);
-    if(document.getElementById('cpp-btn')) document.getElementById('cpp-btn').href = "https://wa.me" + WHATSAPP_PHONE + "?text=" + encodeURIComponent(cppText);
-    if(document.getElementById('python-btn')) document.getElementById('python-btn').href = "https://wa.me" + WHATSAPP_PHONE + "?text=" + encodeURIComponent(pythonText);
+    if(document.getElementById('java-btn')) document.getElementById('java-btn').href = "https://wa.me/" + WHATSAPP_PHONE + "?text=" + encodeURIComponent(javaText);
+    if(document.getElementById('cpp-btn')) document.getElementById('cpp-btn').href = "https://wa.me/" + WHATSAPP_PHONE + "?text=" + encodeURIComponent(cppText);
+    if(document.getElementById('python-btn')) document.getElementById('python-btn').href = "https://wa.me/" + WHATSAPP_PHONE + "?text=" + encodeURIComponent(pythonText);
 }
 
 // Reloj de Control Regresivo en Vivo
