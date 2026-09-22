@@ -385,7 +385,7 @@ function cargarSyllabusModulares() {
 }
 
 // ==========================================
-// MÓDULO: CONFIGURACIÓN DINÁMICA DEL CALENDARIO (UNIFICADO)
+// MÓDULO: CONFIGURACIÓN DINÁMICA DEL CALENDARIO (PARTE 1)
 // ==========================================
 
 // Estado inicial del lenguaje del calendario
@@ -411,50 +411,47 @@ const cpp_sep = "22 24 29".split(" ").map(Number);
 const cpp_oct = "1 6 8 13 15 20 22 27 29".split(" ").map(Number);
 const cpp_nov = "3 5 10".split(" ").map(Number);
 
-// Diccionario maestro unificado para los 4 lenguajes por igual
+// Diccionario maestro unificado con soporte para SUSPENSIONES manuales
 const timelineSchedule = {
     pseint: {
         color: "emerald",
         legend: `<div class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-emerald-500 inline-block"></span> Frecuencia PSeInt: Lun, Mar, Mié y Jue (32 Clases)</div>`,
         months: {
-            SEP: { name: "Septiembre", num: 9, totalDays: 30, startOffset: 1, classes: pseint_sep },
-            OCT: { name: "Octubre", num: 10, totalDays: 31, startOffset: 3, classes: pseint_oct },
-            NOV: { name: "Noviembre", num: 11, totalDays: 30, startOffset: 6, classes: pseint_nov }
+            SEP: { name: "Septiembre", num: 9, totalDays: 30, startOffset: 1, classes: pseint_sep, suspensions: [14] }, // <- El 14 de PSeInt dará X roja
+            OCT: { name: "Octubre", num: 10, totalDays: 31, startOffset: 3, classes: pseint_oct, suspensions: [] },
+            NOV: { name: "Noviembre", num: 11, totalDays: 30, startOffset: 6, classes: pseint_nov, suspensions: [] }
         }
     },
     java: {
         color: "orange",
         legend: `<div class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-orange-500 inline-block"></span> Frecuencia Java: Lunes y Miércoles (15 Clases)</div>`,
         months: {
-            SEP: { name: "Septiembre", num: 9, totalDays: 30, startOffset: 1, classes: java_sep },
-            OCT: { name: "Octubre", num: 10, totalDays: 31, startOffset: 3, classes: java_oct },
-            NOV: { name: "Noviembre", num: 11, totalDays: 30, startOffset: 6, classes: java_nov }
+            SEP: { name: "Septiembre", num: 9, totalDays: 30, startOffset: 1, classes: java_sep, suspensions: [] },
+            OCT: { name: "Octubre", num: 10, totalDays: 31, startOffset: 3, classes: java_oct, suspensions: [] },
+            NOV: { name: "Noviembre", num: 11, totalDays: 30, startOffset: 6, classes: java_nov, suspensions: [] }
         }
     },
     python: {
         color: "blue",
         legend: `<div class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-blue-500 inline-block"></span> Frecuencia Python: Lun, Mié y Vie (20 Clases)</div>`,
         months: {
-            SEP: { name: "Septiembre", num: 9, totalDays: 30, startOffset: 1, classes: python_sep },
-            OCT: { name: "Octubre", num: 10, totalDays: 31, startOffset: 3, classes: python_oct },
-            NOV: { name: "Noviembre", num: 11, totalDays: 30, startOffset: 6, classes: python_nov }
+            SEP: { name: "Septiembre", num: 9, totalDays: 30, startOffset: 1, classes: python_sep, suspensions: [] },
+            OCT: { name: "Octubre", num: 10, totalDays: 31, startOffset: 3, classes: python_oct, suspensions: [] },
+            NOV: { name: "Noviembre", num: 11, totalDays: 30, startOffset: 6, classes: python_nov, suspensions: [] }
         }
     },
     cpp: {
         color: "cyan",
         legend: `<div class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-cyan-500 inline-block"></span> Frecuencia C++: Martes y Jueves (15 Clases)</div>`,
         months: {
-            SEP: { name: "Septiembre", num: 9, totalDays: 30, startOffset: 1, classes: cpp_sep },
-            OCT: { name: "Octubre", num: 10, totalDays: 31, startOffset: 3, classes: cpp_oct },
-            NOV: { name: "Noviembre", num: 11, totalDays: 30, startOffset: 6, classes: cpp_nov }
+            SEP: { name: "Septiembre", num: 9, totalDays: 30, startOffset: 1, classes: cpp_sep, suspensions: [] },
+            OCT: { name: "Octubre", num: 10, totalDays: 31, startOffset: 3, classes: cpp_oct, suspensions: [] },
+            NOV: { name: "Noviembre", num: 11, totalDays: 30, startOffset: 6, classes: cpp_nov, suspensions: [] }
         }
     }
 };
-
-
-
 // ==========================================
-// ARCHIVO: script.js (PARTE 3.2 DE 3)
+// MÓDULO: LÓGICA DE CONTROL Y RENDERIZADO (PARTE 2)
 // ==========================================
 
 // Función encargada de estructurar las celdas del calendario y validar días pasados
@@ -466,6 +463,11 @@ function renderTrimestralTimeline() {
     const currentSchedule = timelineSchedule[activeTimelineLanguage];
     legendEl.innerHTML = currentSchedule.legend;
     container.innerHTML = "";
+
+    // Obtener la fecha del sistema en tiempo real (HOY absoluto al cargar la página)
+    const HOY = new Date();
+    // Limpiamos las horas para comparar puramente números de calendario día a día
+    const fechaHoyPlana = new Date(HOY.getFullYear(), HOY.getMonth(), HOY.getDate());
 
     // Nombres oficiales ordenados estrictamente de Lunes a Domingo
     const weekDaysLabels = ["L", "M", "M", "J", "V", "S", "D"];
@@ -504,25 +506,32 @@ function renderTrimestralTimeline() {
             const dayBadge = document.createElement("span");
             let badgeClass = "w-7 h-7 text-[11px] font-mono font-bold rounded-lg flex items-center justify-center border transition-all ";
             
-            // Construir fecha de celda para comparar en tiempo real contra el día de HOY (15-Sep-2026)
-            const paddingMonth = String(month.num).padStart(2, '0');
-            const paddingDay = String(day).padStart(2, '0');
-            const cellDate = new Date(`2026-${paddingMonth}-${paddingDay}T00:00:00`);
+            // Forzar la creación de la fecha de la celda actual en la hora local del navegador
+            const cellDate = new Date(2026, month.num - 1, day);
 
             // Buscar si el día actual es parte de las clases del curso activo
             let isClassDay = false;
-
             if (month.classes && month.classes.includes(day)) { 
                 isClassDay = true; 
             }
 
             if (isClassDay) {
-                if (FECHA_HOY > cellDate) {
-                    // Si el día de la clase ya pasó, inyectamos el check verde
-                    badgeClass += "bg-emerald-500/10 border-emerald-500/40 text-emerald-400 font-black shadow-md shadow-emerald-950/20";
-                    dayBadge.innerHTML = `<i class="bi bi-check-lg text-[13px]"></i>`;
+                // CONDICIÓN AUTOMÁTICA: Si el día ya pasó con respecto a la fecha actual del sistema
+                if (fechaHoyPlana > cellDate) {
+                    
+                    // REVISIÓN MANUAL: ¿Este día específico está dentro del array de clases suspendidas?
+                    if (month.suspensions && month.suspensions.includes(day)) {
+                        // Pintar la X Roja de clase suspendida
+                        badgeClass += "bg-red-500/10 border-red-500/40 text-red-500 font-black shadow-md shadow-red-950/20";
+                        dayBadge.innerHTML = `<i class="bi bi-x-lg text-[12px]"></i>`;
+                    } else {
+                        // Pintar el Check Verde de clase realizada con normalidad
+                        badgeClass += "bg-emerald-500/10 border-emerald-500/40 text-emerald-400 font-black shadow-md shadow-emerald-950/20";
+                        dayBadge.innerHTML = `<i class="bi bi-check-lg text-[13px]"></i>`;
+                    }
+
                 } else {
-                    // Si la clase es futura, aplicamos el color de marca único del lenguaje
+                    // Si es un día futuro o el día de hoy en curso, aplica el color de marca único del lenguaje
                     if (activeTimelineLanguage === "python") {
                         badgeClass += "bg-blue-600/20 border-blue-500/50 text-blue-400 font-black shadow-md";
                     } else if (activeTimelineLanguage === "pseint") {
@@ -582,14 +591,18 @@ function switchTimelineLanguage(langKey) {
 
 // Inicializador maestro unificado de la interfaz
 function updateInterface(countryKey) {
-    renderCursosCategorizados(countryKey);
+    if (typeof renderCursosCategorizados === "function") {
+        renderCursosCategorizados(countryKey);
+    }
     renderTrimestralTimeline();
     updateTimelineTabsUI(activeTimelineLanguage);
 }
 
 // Orquestador inicial de arranque nativo del DOM
 document.addEventListener("DOMContentLoaded", () => {
-    initializeCountrySelect();
-    // Arrancar la interfaz evaluando inicialmente con el valor por defecto: Bolivia
+    if (typeof initializeCountrySelect === "function") {
+        initializeCountrySelect();
+    }
+    // Arrancar la interfaz evaluando inicialmente con el valor por defecto
     updateInterface("BO");
 });
