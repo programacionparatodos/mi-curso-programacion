@@ -1,219 +1,1115 @@
 <!doctype html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Programación Para Todos | Cursos Desde Cero</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="Cursos de programación desde cero de Programación Para Todos."
+    >
+
+    <title>Cursos | Programación Para Todos</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="img/branding/favicon.png">
+    <!-- Tailwind CSS -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <!-- Bootstrap Icons -->
     <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
-    />
-  </head>
-  <body class="bg-slate-950 text-slate-100 font-sans min-h-screen selection:bg-amber-500 selection:text-slate-950">
-    <!-- ==========================================
-     PARTE 1 DE 2: ESTRUCTURA PRINCIPAL DE CURSOS
-     ========================================== -->
-<body class="bg-slate-950 text-slate-100 font-sans min-h-screen selection:bg-amber-500 selection:text-slate-950">
-    
-    <!-- Barra de Navegación Sticky Superior -->
-    <nav class="backdrop-blur-md bg-slate-950/80 border-b border-slate-800 py-4 px-6 sticky top-0 z-40 shadow-2xl">
-        <div class="max-w-5xl mx-auto flex items-center justify-between">
-            <div class="flex items-center gap-2 font-mono text-sm tracking-wider text-slate-400">
-                <i class="bi bi-code-square text-amber-500 text-lg"></i>
-                <span>root@home:~#</span>
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+    >
+
+    <!-- Estilos globales -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+
+<body class="min-h-screen text-slate-100 selection:bg-amber-500 selection:text-slate-950">
+
+
+<!-- ======================================================
+     NAVEGACIÓN
+     ====================================================== -->
+
+<header
+    class="sticky top-0 z-50 border-b border-slate-800/80
+           bg-slate-950/80 backdrop-blur-xl"
+>
+    <nav
+        class="mx-auto flex max-w-7xl items-center justify-between
+               px-4 py-3 sm:px-6 lg:px-8"
+        aria-label="Navegación principal"
+    >
+
+        <!-- Marca -->
+        <a
+            href="index.html"
+            class="flex items-center gap-3"
+            aria-label="Programación Para Todos - Inicio"
+        >
+            <img
+                src="img/branding/logo.png"
+                alt="Programación Para Todos"
+                class="h-11 w-11 object-contain"
+            >
+
+            <div class="hidden sm:block">
+                <p class="text-sm font-black tracking-tight text-slate-100">
+                    Programación Para Todos
+                </p>
+
+                <p class="font-mono text-[10px] tracking-widest text-slate-500">
+                    &lt;/&gt; aprende • practica • crea
+                </p>
             </div>
-            <div class="flex gap-6 text-sm font-bold tracking-wide">
-                <a href="index.html" class="text-slate-400 hover:text-slate-200 transition-all">INICIO</a>
-                <a href="cursos.html" class="text-amber-400 border-b-2 border-amber-500 pb-1 transition-all">CURSOS</a>
-            </div>
+        </a>
+
+
+        <!-- Navegación escritorio -->
+        <div
+            class="hidden items-center gap-7 text-xs font-bold
+                   tracking-widest lg:flex"
+        >
+            <a
+                href="index.html"
+                class="text-slate-400 transition hover:text-slate-100"
+            >
+                INICIO
+            </a>
+
+            <a
+                href="cursos.html"
+                class="border-b-2 border-amber-500 pb-1 text-amber-400"
+            >
+                CURSOS
+            </a>
+
+            <a
+                href="recursos.html"
+                class="text-slate-400 transition hover:text-slate-100"
+            >
+                RECURSOS
+            </a>
+
+            <a
+                href="comunidad.html"
+                class="text-slate-400 transition hover:text-slate-100"
+            >
+                COMUNIDAD
+            </a>
+
+            <a
+                href="acerca.html"
+                class="text-slate-400 transition hover:text-slate-100"
+            >
+                ACERCA DE
+            </a>
         </div>
+
+
+        <!-- Botón móvil -->
+        <button
+            id="mobile-menu-button"
+            type="button"
+            class="flex h-10 w-10 items-center justify-center rounded-xl
+                   border border-slate-800 bg-slate-900/70 text-slate-300
+                   transition hover:border-amber-500/40 hover:text-amber-400
+                   lg:hidden"
+            aria-label="Abrir menú"
+            aria-expanded="false"
+            aria-controls="mobile-menu"
+        >
+            <i id="mobile-menu-icon" class="bi bi-list text-xl"></i>
+        </button>
+
     </nav>
 
-    <!-- Banner Informativo Superior Localizado -->
-    <div class="backdrop-blur-md bg-slate-950/80 border-b border-amber-500/20 py-2.5 px-4 text-center text-xs md:text-sm tracking-wide shadow-2xl relative z-50">
-        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-center gap-2">
-            <span class="text-slate-400 font-medium flex items-center gap-1.5">
-                <span class="inline-flex h-2 w-2 animate-ping rounded-full bg-amber-400 opacity-75"></span>
-                <i class="bi bi-rocket-takeoff-fill text-amber-400"></i>
-                ¡Ciclo Académico Abierto! Revisa la fecha de inicio de cada tarjeta.
-            </span>
+
+    <!-- Menú móvil -->
+    <div
+        id="mobile-menu"
+        class="hidden border-t border-slate-800/70 bg-slate-950/95 lg:hidden"
+    >
+        <div
+            class="mx-auto flex max-w-7xl flex-col px-4 py-4
+                   text-sm font-bold tracking-wide sm:px-6"
+        >
+            <a
+                href="index.html"
+                class="rounded-lg px-3 py-3 text-slate-400
+                       hover:bg-slate-900 hover:text-slate-100"
+            >
+                INICIO
+            </a>
+
+            <a
+                href="cursos.html"
+                class="rounded-lg bg-amber-500/10 px-3 py-3 text-amber-400"
+            >
+                CURSOS
+            </a>
+
+            <a
+                href="recursos.html"
+                class="rounded-lg px-3 py-3 text-slate-400
+                       hover:bg-slate-900 hover:text-slate-100"
+            >
+                RECURSOS
+            </a>
+
+            <a
+                href="comunidad.html"
+                class="rounded-lg px-3 py-3 text-slate-400
+                       hover:bg-slate-900 hover:text-slate-100"
+            >
+                COMUNIDAD
+            </a>
+
+            <a
+                href="acerca.html"
+                class="rounded-lg px-3 py-3 text-slate-400
+                       hover:bg-slate-900 hover:text-slate-100"
+            >
+                ACERCA DE
+            </a>
         </div>
     </div>
+</header>
 
-    <!-- Cabecera Principal del Catálogo de Cursos -->
-    <header class="max-w-3xl mx-auto px-4 pt-12 pb-8 text-center relative">
-        <h1 class="font-extrabold tracking-tight leading-none">
-            <span class="block py-1 text-slate-100 text-4xl sm:text-5xl md:text-6xl">Curso de Programación</span>
-            <span class="block mt-2 bg-gradient-to-r from-amber-400 via-orange-500 to-amber-600 bg-clip-text text-transparent drop-shadow-[0_2px_10px_rgba(245,158,11,0.15)] text-3xl sm:text-4xl md:text-5xl">Desde Cero</span>
-        </h1>
-        <p class="text-slate-400 max-w-xl mx-auto mt-6 text-sm md:text-base leading-relaxed font-normal">
-            Domina la lógica pura y la sintaxis de los lenguajes más demandados del mercado tecnológico con clases 100% prácticas y mentoría en vivo.
-        </p>
-    </header>
 
-    <!-- Selector Alfabético Automatizado de Ubicación -->
-    <section class="max-w-4xl mx-auto px-4 mb-12">
-        <div class="backdrop-blur-md bg-slate-900/60 border border-slate-800 rounded-2xl p-6 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-4">
-            <div class="flex items-center gap-3">
-                <span class="text-2xl text-amber-500 flex items-center justify-center"><i class="bi bi-globe2"></i></span>
-                <div>
-                    <h3 class="font-bold text-slate-200 text-sm md:text-base">Personalizar Información</h3>
-                    <p class="text-xs text-slate-400">Selecciona tu ubicación para adaptar precios, monedas y horarios locales de manera inmediata.</p>
-                </div>
+<main>
+
+
+    <!-- ==================================================
+         HERO
+         ================================================== -->
+
+    <section class="relative overflow-hidden">
+
+        <!-- Luces decorativas -->
+        <div
+            class="pointer-events-none absolute left-1/2 top-0
+                   h-80 w-80 -translate-x-1/2 rounded-full
+                   bg-amber-500/5 blur-3xl"
+        ></div>
+
+        <div
+            class="pointer-events-none absolute right-0 top-20
+                   h-72 w-72 rounded-full bg-cyan-500/5 blur-3xl"
+        ></div>
+
+
+        <div
+            class="relative mx-auto max-w-7xl px-4 pb-12 pt-16
+                   text-center sm:px-6 md:pb-16 md:pt-20 lg:px-8"
+        >
+
+            <div
+                class="mb-5 inline-flex items-center gap-2 rounded-full
+                       border border-amber-500/20 bg-amber-500/5
+                       px-3 py-1.5 font-mono text-[10px] font-bold
+                       tracking-[0.18em] text-amber-400 sm:text-xs"
+            >
+                <span
+                    class="h-1.5 w-1.5 rounded-full bg-amber-400
+                           shadow-[0_0_10px_rgba(251,191,36,.8)]"
+                ></span>
+
+                RUTAS DE APRENDIZAJE
             </div>
-            <select id="country-select" class="w-full md:w-64 bg-slate-950 border border-slate-700 rounded-xl px-4 py-2.5 text-slate-200 font-medium focus:outline-none focus:border-amber-500 transition-colors cursor-pointer text-sm">
-                <!-- Se inyecta alfabéticamente por script.js dejando a Bolivia por defecto -->
-            </select>
+
+
+            <h1
+                class="mx-auto max-w-4xl text-4xl font-black
+                       tracking-tight text-slate-100 sm:text-5xl
+                       md:text-6xl lg:text-7xl"
+            >
+                Aprende programación
+                <span class="ppt-gradient-text">
+                    desde cero.
+                </span>
+            </h1>
+
+
+            <p
+                class="mx-auto mt-6 max-w-2xl text-sm leading-7
+                       text-slate-400 sm:text-base"
+            >
+                Construye bases sólidas, desarrolla tu lógica y aprende
+                programación mediante clases prácticas en vivo y rutas
+                organizadas paso a paso.
+            </p>
+
+
+            <!-- Terminal -->
+            <div
+                class="mx-auto mt-8 max-w-2xl overflow-hidden
+                       rounded-xl border border-slate-800 bg-slate-950/70
+                       text-left shadow-2xl"
+            >
+
+                <div
+                    class="flex items-center justify-between border-b
+                           border-slate-800/80 px-4 py-2.5"
+                >
+                    <div class="flex gap-1.5">
+                        <span class="h-2.5 w-2.5 rounded-full bg-rose-500"></span>
+                        <span class="h-2.5 w-2.5 rounded-full bg-amber-500"></span>
+                        <span class="h-2.5 w-2.5 rounded-full bg-emerald-500"></span>
+                    </div>
+
+                    <span class="font-mono text-[10px] text-slate-600">
+                        courses.sh
+                    </span>
+                </div>
+
+
+                <div
+                    class="overflow-x-auto px-4 py-4 font-mono
+                           text-xs sm:text-sm"
+                >
+                    <span class="text-emerald-400">student@ppt</span>
+                    <span class="text-slate-500">:</span>
+                    <span class="text-blue-400">~/cursos</span>
+                    <span class="text-slate-500">$</span>
+                    <span class="ml-2 text-slate-300">
+                        ./comenzar --desde-cero
+                    </span>
+
+                    <span
+                        class="ml-1 inline-block h-4 w-1.5
+                               animate-pulse bg-amber-400 align-middle"
+                    ></span>
+                </div>
+
+            </div>
+
         </div>
     </section>
 
-    <!-- Contenedor General de Cursos Organizados en Dos Columnas -->
-    <main class="max-w-5xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-3 gap-8 pb-12">
-        
-        <!-- Sección de Tarjetas Dinámicas Modulares -->
-        <section class="lg:col-span-2 space-y-12">
-            
-            <!-- CATEGORÍA 1: CURSOS DISPONIBLES (INSCRIPCIONES ABIERTAS) -->
-            <div class="space-y-4">
-                <h3 class="text-lg font-bold font-mono tracking-wider text-slate-400 flex items-center gap-2 border-b border-slate-800 pb-2">
-                    <span class="inline-block w-2 h-2 rounded-full bg-emerald-500 shadow-lg shadow-emerald-500/50"></span>
-                    01 // INSCRIPCIONES ABIERTAS (PRÓXIMOS A INICIAR)
-                </h3>
-                <div id="cursos-disponibles" class="space-y-8">
-                    <!-- Inyectado por JavaScript -->
+
+    <!-- ==================================================
+        ZONA HORARIA
+    ================================================== -->
+
+    <section class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+
+        <div
+            class="ppt-card flex flex-col gap-5 p-5
+                   md:flex-row md:items-center md:justify-between md:p-6"
+        >
+
+            <!-- Información -->
+
+            <div class="flex items-start gap-4">
+
+                <div
+                    class="flex h-11 w-11 shrink-0 items-center justify-center
+                           rounded-xl border border-amber-500/20
+                           bg-amber-500/10 text-xl text-amber-400"
+                >
+                    <i class="bi bi-globe-americas"></i>
                 </div>
+
+
+                <div>
+
+                    <div class="flex flex-wrap items-center gap-2">
+
+                        <p
+                            class="font-mono text-[10px] font-bold
+                                   tracking-[0.2em] text-amber-400"
+                        >
+                            ZONA HORARIA
+                        </p>
+
+
+                        <span
+                            class="inline-flex items-center gap-1.5 rounded-full
+                                   border border-emerald-500/20 bg-emerald-500/5
+                                   px-2 py-1 font-mono text-[8px]
+                                   font-bold text-emerald-400"
+                        >
+
+                            <span
+                                class="h-1.5 w-1.5 rounded-full bg-emerald-400
+                                       shadow-[0_0_8px_rgba(52,211,153,.8)]"
+                            ></span>
+
+                            <span data-zona-modo>
+                                Detectada automáticamente
+                            </span>
+
+                        </span>
+
+                    </div>
+
+
+                    <h2 class="mt-1 font-bold text-slate-100">
+                        Horarios adaptados a tu ubicación
+                    </h2>
+
+
+                    <p
+                        class="mt-1 max-w-xl text-xs leading-5 text-slate-500
+                               sm:text-sm"
+                    >
+                        Detectamos automáticamente tu zona horaria para mostrar
+                        los días y horarios de las clases en tu hora local.
+                        Puedes cambiarla manualmente si lo necesitas.
+                    </p>
+
+
+                    <!-- Zona detectada -->
+
+                    <div
+                        class="mt-3 flex flex-wrap items-center gap-x-2 gap-y-1
+                               font-mono text-[9px] text-slate-600"
+                    >
+
+                        <i class="bi bi-geo-alt text-slate-500"></i>
+
+
+                        <span data-pais-actual>
+                            🌎 Tu ubicación
+                        </span>
+
+
+                        <span class="text-slate-800">
+                            •
+                        </span>
+
+
+                        <span
+                            data-zona-horaria
+                            class="text-slate-500"
+                        >
+                            Detectando...
+                        </span>
+
+
+                        <span class="text-slate-800">
+                            •
+                        </span>
+
+
+                        <span
+                            data-offset-zona
+                            class="text-slate-500"
+                        ></span>
+
+                    </div>
+
+                </div>
+
             </div>
 
-            <!-- CATEGORÍA 2: CURSOS EN PLANIFICACIÓN (PRÓXIMOS LANZAMIENTOS) -->
-            <div class="space-y-4">
-                <h3 class="text-lg font-bold font-mono tracking-wider text-slate-400 flex items-center gap-2 border-b border-slate-800 pb-2">
-                    <span class="inline-block w-2 h-2 rounded-full bg-cyan-500 shadow-lg shadow-cyan-500/50"></span>
-                    02 // PRÓXIMAS APERTURAS (PLANIFICACIÓN)
-                </h3>
-                <div id="cursos-proximos" class="space-y-8">
-                    <!-- Inyectado por JavaScript -->
+
+            <!-- Selector -->
+
+            <div class="w-full shrink-0 md:w-80">
+
+                <label
+                    for="country-select"
+                    class="mb-2 block font-mono text-[9px]
+                           font-bold tracking-wider text-slate-600"
+                >
+                    CAMBIAR ZONA HORARIA
+                </label>
+
+
+                <div class="relative">
+
+                    <i
+                        class="bi bi-clock absolute left-4 top-1/2
+                               -translate-y-1/2 text-sm text-amber-400"
+                    ></i>
+
+
+                    <select
+                        id="country-select"
+
+                        aria-label="Seleccionar zona horaria"
+
+                        class="w-full appearance-none rounded-xl border
+                               border-slate-700 bg-slate-950
+                               py-3 pl-10 pr-10 text-xs text-slate-200
+                               outline-none transition
+                               hover:border-slate-600
+                               focus:border-amber-500
+                               focus:ring-2 focus:ring-amber-500/10"
+                    >
+
+                        <option value="__AUTO__">
+                            🌎 Detectando zona horaria...
+                        </option>
+
+                    </select>
+
+
+                    <i
+                        class="bi bi-chevron-down pointer-events-none
+                               absolute right-4 top-1/2
+                               -translate-y-1/2 text-xs text-slate-600"
+                    ></i>
+
                 </div>
+
+
+                <p
+                    class="mt-2 flex items-center gap-1.5
+                           text-[9px] leading-4 text-slate-600"
+                >
+                    <i class="bi bi-shield-check text-emerald-500"></i>
+
+                    No necesitamos acceder a tu ubicación GPS.
+                </p>
+
             </div>
 
-            <!-- CATEGORÍA 3: CURSOS EN CURSO (YA INICIADOS) -->
-            <div class="space-y-4">
-                <h3 class="text-lg font-bold font-mono tracking-wider text-slate-400 flex items-center gap-2 border-b border-slate-800 pb-2">
-                    <span class="inline-block w-2 h-2 rounded-full bg-rose-500 shadow-lg shadow-rose-500/50"></span>
-                    03 // CLASES EN CURSO (GRUPOS INICIADOS)
-                </h3>
-                <div id="cursos-iniciados" class="space-y-8">
-                    <!-- Inyectado por JavaScript -->
+        </div>
+
+    </section>
+    
+
+
+
+    <!-- ==================================================
+        CATÁLOGO
+    ================================================== -->
+
+    <section
+        class="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8"
+        aria-labelledby="catalogo-title"
+    >
+
+        <div class="mb-10">
+
+            <div class="flex items-center gap-3">
+                <span class="ppt-section-label">
+                    01 // CATÁLOGO
+                </span>
+
+                <div class="ppt-section-line"></div>
+            </div>
+
+
+            <div
+                class="mt-4 flex flex-col gap-3 md:flex-row
+                       md:items-end md:justify-between"
+            >
+                <div>
+                    <h2
+                        id="catalogo-title"
+                        class="text-2xl font-black tracking-tight
+                               text-slate-100 sm:text-3xl"
+                    >
+                        Cursos disponibles
+                    </h2>
+
+                    <p
+                        class="mt-2 max-w-2xl text-sm leading-6
+                               text-slate-500"
+                    >
+                        El catálogo se actualiza automáticamente según
+                        la fecha de inicio de cada grupo.
+                    </p>
                 </div>
+
+
+                <div
+                    class="flex items-center gap-2 font-mono
+                           text-[10px] text-slate-600"
+                >
+                    <i class="bi bi-clock-history"></i>
+                    Estado automático por fecha
+                </div>
+
+            </div>
+        </div>
+
+
+
+        <!-- ==============================================
+             DISPONIBLES
+             ============================================== -->
+
+        <section
+            id="seccion-disponibles"
+            class="mb-16"
+            aria-labelledby="titulo-disponibles"
+        >
+
+            <div
+                class="mb-6 flex flex-col gap-3 border-b
+                       border-slate-800/80 pb-4 sm:flex-row
+                       sm:items-center sm:justify-between"
+            >
+
+                <div class="flex items-center gap-3">
+
+                    <span
+                        class="h-2.5 w-2.5 rounded-full bg-emerald-400
+                               shadow-[0_0_14px_rgba(52,211,153,.75)]"
+                    ></span>
+
+                    <div>
+                        <h3
+                            id="titulo-disponibles"
+                            class="font-mono text-sm font-bold
+                                   tracking-wider text-slate-200"
+                        >
+                            INSCRIPCIONES ABIERTAS
+                        </h3>
+
+                        <p class="mt-1 text-xs text-slate-600">
+                            Cursos que comienzan dentro de los próximos 10 días.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <span
+                    id="contador-disponibles"
+                    class="w-max rounded-md border border-emerald-500/20
+                           bg-emerald-500/5 px-2.5 py-1 font-mono
+                           text-[10px] font-bold text-emerald-400"
+                >
+                    0 CURSOS
+                </span>
+
+            </div>
+
+
+            <div
+                id="cursos-disponibles"
+                class="grid grid-cols-1 gap-6 xl:grid-cols-2"
+            >
+                <!-- Inyectado por js/cursos.js -->
             </div>
 
         </section>
 
-                <!-- Barra Lateral de Información Complementaria (Asides) -->
-        <aside class="space-y-8">
-            
-            <!-- Bloque de Métodos de Pago Dinámicos -->
-            <div class="backdrop-blur-md bg-slate-900/60 border border-slate-800 rounded-2xl p-6 shadow-2xl">
-                <div class="flex items-center gap-2 text-slate-200 font-bold text-lg mb-4 pb-2 border-b border-slate-800">
-                    <span class="text-amber-500"><i class="bi bi-credit-card-2-front-fill"></i></span>
-                    <h3 class="text-base">Métodos de Pago</h3>
+
+
+        <!-- ==============================================
+             PRÓXIMOS
+             ============================================== -->
+
+        <section
+            id="seccion-proximos"
+            class="mb-16"
+            aria-labelledby="titulo-proximos"
+        >
+
+            <div
+                class="mb-6 flex flex-col gap-3 border-b
+                       border-slate-800/80 pb-4 sm:flex-row
+                       sm:items-center sm:justify-between"
+            >
+
+                <div class="flex items-center gap-3">
+
+                    <span
+                        class="h-2.5 w-2.5 rounded-full bg-cyan-400
+                               shadow-[0_0_14px_rgba(34,211,238,.75)]"
+                    ></span>
+
+                    <div>
+                        <h3
+                            id="titulo-proximos"
+                            class="font-mono text-sm font-bold
+                                   tracking-wider text-slate-200"
+                        >
+                            PRÓXIMAS APERTURAS
+                        </h3>
+
+                        <p class="mt-1 text-xs text-slate-600">
+                            Grupos anunciados cuya inscripción abrirá próximamente.
+                        </p>
+                    </div>
+
                 </div>
-                <div id="payment-container" class="space-y-4 text-sm text-slate-400">
-                    <!-- Se gestiona dinámicamente mediante script.js según la geolocalización -->
-                    <p class="text-xs animate-pulse">Detectando pasarelas disponibles para tu ubicación...</p>
-                </div>
+
+
+                <span
+                    id="contador-proximos"
+                    class="w-max rounded-md border border-cyan-500/20
+                           bg-cyan-500/5 px-2.5 py-1 font-mono
+                           text-[10px] font-bold text-cyan-400"
+                >
+                    0 CURSOS
+                </span>
+
             </div>
 
-            <!-- Bloque de Requisitos Técnicos Mínimos -->
-            <div class="backdrop-blur-md bg-slate-900/60 border border-slate-800 rounded-2xl p-6 shadow-2xl">
-                <div class="flex items-center gap-2 text-slate-200 font-bold text-lg mb-4 pb-2 border-b border-slate-800">
-                    <span class="text-amber-500"><i class="bi bi-laptop"></i></span>
-                    <h3 class="text-base">Requisitos Mínimos</h3>
-                </div>
-                <p class="text-xs md:text-sm text-slate-400 leading-relaxed">
-                    Al ser programas diseñados desde el primer paso, solo necesitas una computadora de escritorio o laptop básica (mínimo 4GB de RAM) y acceso a internet estable para seguir la transmisión en vivo.
-                    <strong class="text-slate-300 font-semibold block mt-2">Nuestra metodología interactiva garantiza que asimiles la lógica de programación con facilidad, transformándote en creador de tecnología sin importar tu profesión o experiencia previa.</strong>
-                </p>
+
+            <div
+                id="cursos-proximos"
+                class="grid grid-cols-1 gap-6 xl:grid-cols-2"
+            >
+                <!-- Inyectado por js/cursos.js -->
             </div>
 
-            <!-- Bloque de Preguntas Frecuentes (FAQ) -->
-            <div class="backdrop-blur-md bg-slate-900/60 border border-slate-800 rounded-2xl p-6 shadow-2xl">
-                <div class="flex items-center gap-2 text-slate-200 font-bold text-lg mb-4 pb-2 border-b border-slate-800">
-                    <span class="text-amber-500"><i class="bi bi-question-circle-fill"></i></span>
-                    <h3 class="text-base">Preguntas Frecuentes</h3>
-                </div>
-                <div class="space-y-3">
-                    <details class="group bg-slate-950 rounded-xl border border-slate-800/60 overflow-hidden cursor-pointer">
-                        <summary class="list-none p-3 font-semibold text-xs md:text-sm text-slate-300 flex justify-between items-center select-none group-open:text-amber-400">
-                            ¿Las clases quedan grabadas?
-                            <span class="transition-transform group-open:rotate-180 text-[10px]"><i class="bi bi-chevron-down"></i></span>
-                        </summary>
-                        <p class="p-3 pt-0 text-xs text-slate-400 leading-relaxed border-t border-slate-900/60">
-                            Sí, absolutamente todas las sesiones en vivo se graban y tendrás acceso completo de por vida para repasarlas cuando quieras a través de la plataforma virtual.
-                        </p>
-                    </details>
+        </section>
 
-                    <details class="group bg-slate-950 rounded-xl border border-slate-800/60 overflow-hidden cursor-pointer">
-                        <summary class="list-none p-3 font-semibold text-xs md:text-sm text-slate-300 flex justify-between items-center select-none group-open:text-amber-400">
-                            ¿Se entrega certificado al finalizar?
-                            <span class="transition-transform group-open:rotate-180 text-[10px]"><i class="bi bi-chevron-down"></i></span>
-                        </summary>
-                        <p class="p-3 pt-0 text-xs text-slate-400 leading-relaxed border-t border-slate-900/60">
-                            No emitimos certificados formales. Nos enfocamos al 100% en el desarrollo de tus habilidades prácticas reales y en la resolución independiente de problemas lógicos aplicados.
-                        </p>
-                    </details>
 
-                    <details class="group bg-slate-950 rounded-xl border border-slate-800/60 overflow-hidden cursor-pointer">
-                        <summary class="list-none p-3 font-semibold text-xs md:text-sm text-slate-300 flex justify-between items-center select-none group-open:text-amber-400">
-                            ¿Cuál es el proceso de registro?
-                            <span class="transition-transform group-open:rotate-180 text-[10px]"><i class="bi bi-chevron-down"></i></span>
-                        </summary>
-                        <p class="p-3 pt-0 text-xs text-slate-400 leading-relaxed border-t border-slate-900/60">
-                            Es simple: pulsas el botón del curso de tu interés, coordinas el pago por WhatsApp con el docente y, tras adjuntar tu comprobante de depósito, recibirás tu formulario oficial de inscripción.
+
+        <!-- ==============================================
+             INICIADOS
+             ============================================== -->
+
+        <section
+            id="seccion-iniciados"
+            aria-labelledby="titulo-iniciados"
+        >
+
+            <div
+                class="mb-6 flex flex-col gap-3 border-b
+                       border-slate-800/80 pb-4 sm:flex-row
+                       sm:items-center sm:justify-between"
+            >
+
+                <div class="flex items-center gap-3">
+
+                    <span class="relative flex h-2.5 w-2.5">
+
+                        <span
+                            class="absolute inline-flex h-full w-full
+                                   animate-ping rounded-full bg-rose-400
+                                   opacity-50"
+                        ></span>
+
+                        <span
+                            class="relative inline-flex h-2.5 w-2.5
+                                   rounded-full bg-rose-500"
+                        ></span>
+
+                    </span>
+
+
+                    <div>
+                        <h3
+                            id="titulo-iniciados"
+                            class="font-mono text-sm font-bold
+                                   tracking-wider text-slate-200"
+                        >
+                            CLASES EN CURSO
+                        </h3>
+
+                        <p class="mt-1 text-xs text-slate-600">
+                            Grupos que comenzaron recientemente.
                         </p>
-                    </details>
+                    </div>
+
                 </div>
+
+
+                <span
+                    id="contador-iniciados"
+                    class="w-max rounded-md border border-rose-500/20
+                           bg-rose-500/5 px-2.5 py-1 font-mono
+                           text-[10px] font-bold text-rose-400"
+                >
+                    0 CURSOS
+                </span>
+
             </div>
-        </aside>
-    </main>
 
-    <!-- CRONOGRAMA ACADÉMICO TRIMESTRAL CON PESTAÑAS INTEGRADAS -->
-    <div class="w-full max-w-5xl mx-auto mt-12 p-6 pb-20 rounded-2xl bg-slate-900/40 border border-slate-800/80 backdrop-blur-md shadow-2xl mb-12">
-        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-8 border-b border-slate-800/60 pb-6">
-            <div>
-                <h3 class="text-xl font-extrabold text-slate-100 flex items-center gap-2">
-                    <i class="bi bi-calendar-check text-amber-500"></i> Cronograma de Clases en Vivo
+
+            <div
+                id="cursos-iniciados"
+                class="grid grid-cols-1 gap-6 xl:grid-cols-2"
+            >
+                <!-- Inyectado por js/cursos.js -->
+            </div>
+
+        </section>
+
+    </section>
+
+
+
+    <!-- ==================================================
+         INFORMACIÓN
+         ================================================== -->
+
+    <section
+        class="border-y border-slate-800/70 bg-slate-950/30"
+    >
+
+        <div
+            class="mx-auto grid max-w-7xl grid-cols-1 gap-6
+                   px-4 py-16 sm:px-6 lg:grid-cols-3 lg:px-8"
+        >
+
+
+            <!-- Metodología -->
+            <article class="ppt-card p-6">
+
+                <div
+                    class="mb-5 flex h-11 w-11 items-center justify-center
+                           rounded-xl border border-amber-500/20
+                           bg-amber-500/10 text-xl text-amber-400"
+                >
+                    <i class="bi bi-camera-video"></i>
+                </div>
+
+                <h3 class="font-bold text-slate-100">
+                    Clases en vivo
                 </h3>
-                <p class="text-xs text-slate-400 mt-1">
-                    Fechas oficiales programadas para el trimestre Septiembre - Noviembre 2026
-                </p>
-            </div>
 
-            <!-- Selectores de Control de Pestañas en Orden: PSeInt, Java, Python, C++ -->
-            <div class="flex flex-wrap items-center gap-2 bg-slate-950 p-1.5 rounded-xl border border-slate-800/60 w-full sm:w-auto">
-                <button id="timeline-btn-pseint" onclick="switchTimelineLanguage('pseint')" class="flex-1 sm:flex-none px-4 py-2 rounded-lg text-xs font-bold transition-all duration-300 flex items-center justify-center gap-1.5 bg-emerald-600 text-white shadow-lg shadow-emerald-600/10">
-                    <i class="bi bi-terminal-dash"></i> PSeInt
-                </button>
-                <button id="timeline-btn-java" onclick="switchTimelineLanguage('java')" class="flex-1 sm:flex-none px-4 py-2 rounded-lg text-xs font-medium transition-all duration-300 flex items-center justify-center gap-1.5 text-slate-400 hover:text-slate-200">
-                    <i class="bi bi-cup-hot-fill"></i> Java
-                </button>
-                <button id="timeline-btn-python" onclick="switchTimelineLanguage('python')" class="flex-1 sm:flex-none px-4 py-2 rounded-lg text-xs font-medium transition-all duration-300 flex items-center justify-center gap-1.5 text-slate-400 hover:text-slate-200">
-                    <i class="bi bi-braces"></i> Python
-                </button>
-                <button id="timeline-btn-cpp" onclick="switchTimelineLanguage('cpp')" class="flex-1 sm:flex-none px-4 py-2 rounded-lg text-xs font-medium transition-all duration-300 flex items-center justify-center gap-1.5 text-slate-400 hover:text-slate-200">
-                    <i class="bi bi-file-earmark-code-fill"></i> C++
-                </button>
-            </div>
+                <p
+                    class="mt-3 text-sm leading-6 text-slate-500"
+                >
+                    Aprende junto al docente mediante explicaciones,
+                    ejercicios y resolución práctica de problemas.
+                </p>
+
+            </article>
+
+
+
+            <!-- Requisitos -->
+            <article class="ppt-card p-6">
+
+                <div
+                    class="mb-5 flex h-11 w-11 items-center justify-center
+                           rounded-xl border border-cyan-500/20
+                           bg-cyan-500/10 text-xl text-cyan-400"
+                >
+                    <i class="bi bi-laptop"></i>
+                </div>
+
+                <h3 class="font-bold text-slate-100">
+                    Requisitos mínimos
+                </h3>
+
+                <p
+                    class="mt-3 text-sm leading-6 text-slate-500"
+                >
+                    Una computadora o laptop básica, conexión estable
+                    a Internet y muchas ganas de practicar.
+                </p>
+
+            </article>
+
+
+
+            <!-- Nivel -->
+            <article class="ppt-card p-6">
+
+                <div
+                    class="mb-5 flex h-11 w-11 items-center justify-center
+                           rounded-xl border border-emerald-500/20
+                           bg-emerald-500/10 text-xl text-emerald-400"
+                >
+                    <i class="bi bi-code-slash"></i>
+                </div>
+
+                <h3 class="font-bold text-slate-100">
+                    Desde cero
+                </h3>
+
+                <p
+                    class="mt-3 text-sm leading-6 text-slate-500"
+                >
+                    No necesitas experiencia previa. Las rutas están
+                    diseñadas para avanzar progresivamente desde los
+                    fundamentos.
+                </p>
+
+            </article>
+
         </div>
 
-        <!-- Leyenda de Colores Dinámica (Inyectada por JS) -->
-        <div id="timeline-legend" class="flex flex-wrap items-center gap-4 mb-6 text-[11px] text-slate-400 bg-slate-950/40 p-3 rounded-xl border border-slate-900/60"></div>
+    </section>
 
-        <!-- Contenedor Único de los 3 Meses Completos (Inyectado por JS) -->
-        <div id="timeline-months-container" class="grid grid-cols-1 md:grid-cols-3 gap-6 items-start"></div>
-    </div>    
-    
-    <!-- Enlace de Script del Motor Lógico -->
-    <script src="script.js"></script>
-  </body>
+
+
+    <!-- ==================================================
+         PREGUNTAS FRECUENTES
+         ================================================== -->
+
+    <section
+        class="mx-auto max-w-4xl px-4 py-16 sm:px-6 lg:px-8"
+    >
+
+        <div class="mb-8 text-center">
+
+            <span class="ppt-section-label">
+                02 // FAQ
+            </span>
+
+            <h2
+                class="mt-4 text-2xl font-black tracking-tight
+                       text-slate-100 sm:text-3xl"
+            >
+                Preguntas frecuentes
+            </h2>
+
+        </div>
+
+
+        <div class="space-y-3">
+
+            <details class="ppt-card group overflow-hidden">
+
+                <summary
+                    class="flex cursor-pointer list-none items-center
+                           justify-between gap-4 p-5 text-sm font-bold
+                           text-slate-200 transition
+                           group-open:text-amber-400"
+                >
+                    ¿Necesito conocimientos previos?
+
+                    <i
+                        class="bi bi-chevron-down text-xs transition-transform
+                               group-open:rotate-180"
+                    ></i>
+                </summary>
+
+                <div
+                    class="border-t border-slate-800/70 px-5 py-4
+                           text-sm leading-6 text-slate-500"
+                >
+                    No. Los cursos de Fundamentos están pensados para
+                    comenzar desde cero y desarrollar progresivamente
+                    tu lógica de programación.
+                </div>
+
+            </details>
+
+
+
+            <details class="ppt-card group overflow-hidden">
+
+                <summary
+                    class="flex cursor-pointer list-none items-center
+                           justify-between gap-4 p-5 text-sm font-bold
+                           text-slate-200 transition
+                           group-open:text-amber-400"
+                >
+                    ¿Las clases quedan grabadas?
+
+                    <i
+                        class="bi bi-chevron-down text-xs transition-transform
+                               group-open:rotate-180"
+                    ></i>
+                </summary>
+
+                <div
+                    class="border-t border-slate-800/70 px-5 py-4
+                           text-sm leading-6 text-slate-500"
+                >
+                    Las sesiones en vivo se graban para que los
+                    estudiantes puedan repasar posteriormente el
+                    contenido desarrollado durante las clases.
+                </div>
+
+            </details>
+
+
+
+            <details class="ppt-card group overflow-hidden">
+
+                <summary
+                    class="flex cursor-pointer list-none items-center
+                           justify-between gap-4 p-5 text-sm font-bold
+                           text-slate-200 transition
+                           group-open:text-amber-400"
+                >
+                    ¿Se entrega certificado?
+
+                    <i
+                        class="bi bi-chevron-down text-xs transition-transform
+                               group-open:rotate-180"
+                    ></i>
+                </summary>
+
+                <div
+                    class="border-t border-slate-800/70 px-5 py-4
+                           text-sm leading-6 text-slate-500"
+                >
+                    Actualmente no se emiten certificados formales.
+                    El enfoque está en desarrollar habilidades prácticas,
+                    lógica y capacidad para resolver problemas.
+                </div>
+
+            </details>
+
+
+
+            <details class="ppt-card group overflow-hidden">
+
+                <summary
+                    class="flex cursor-pointer list-none items-center
+                           justify-between gap-4 p-5 text-sm font-bold
+                           text-slate-200 transition
+                           group-open:text-amber-400"
+                >
+                    ¿Cómo puedo inscribirme?
+
+                    <i
+                        class="bi bi-chevron-down text-xs transition-transform
+                               group-open:rotate-180"
+                    ></i>
+                </summary>
+
+                <div
+                    class="border-t border-slate-800/70 px-5 py-4
+                           text-sm leading-6 text-slate-500"
+                >
+                    Cuando las inscripciones estén abiertas, cada curso
+                    disponible mostrará su opción de inscripción con la
+                    información correspondiente.
+                </div>
+
+            </details>
+
+        </div>
+
+    </section>
+
+
+</main>
+
+
+
+<!-- ======================================================
+     REDES FLOTANTES
+     ====================================================== -->
+
+<div
+    class="fixed bottom-5 right-4 z-40 flex flex-col gap-2
+           sm:right-6"
+>
+
+    <!-- WhatsApp -->
+    <a
+        href="https://chat.whatsapp.com/KduiLWEt4zvGnMiOmYEStg?s=cl&p=a&mlu=4&ilr=4"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="WhatsApp"
+        aria-label="Comunidad de WhatsApp"
+        class="flex h-11 w-11 items-center justify-center rounded-full
+               border border-emerald-400/20 bg-emerald-600
+               text-lg text-white shadow-xl transition
+               hover:-translate-y-1 hover:scale-105 hover:bg-emerald-500"
+    >
+        <i class="bi bi-whatsapp"></i>
+    </a>
+
+
+    <!-- Telegram -->
+    <a
+        href="https://t.me/ProgramacionParaTodos"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="Telegram"
+        aria-label="Telegram de Programación Para Todos"
+        class="flex h-11 w-11 items-center justify-center rounded-full
+               border border-sky-400/20 bg-sky-600
+               text-lg text-white shadow-xl transition
+               hover:-translate-y-1 hover:scale-105 hover:bg-sky-500"
+    >
+        <i class="bi bi-telegram"></i>
+    </a>
+
+
+    <!-- YouTube -->
+    <a
+        href="https://youtube.com/@programacionparatodos?si=RKkNZYdPl4ZWtQp_"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="YouTube"
+        aria-label="YouTube de Programación Para Todos"
+        class="flex h-11 w-11 items-center justify-center rounded-full
+               border border-rose-400/20 bg-rose-600
+               text-lg text-white shadow-xl transition
+               hover:-translate-y-1 hover:scale-105 hover:bg-rose-500"
+    >
+        <i class="bi bi-youtube"></i>
+    </a>
+
+
+    <!-- GitHub -->
+    <a
+        href="https://github.com/programacionparatodos/TikTokLive"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="GitHub"
+        aria-label="GitHub de Programación Para Todos"
+        class="flex h-11 w-11 items-center justify-center rounded-full
+               border border-slate-500/30 bg-slate-800
+               text-lg text-white shadow-xl transition
+               hover:-translate-y-1 hover:scale-105 hover:bg-slate-700
+               hover:border-slate-400/50"
+    >
+        <i class="bi bi-github"></i>
+    </a>
+
+</div>
+
+
+
+<!-- ======================================================
+     FOOTER
+     ====================================================== -->
+
+<footer class="border-t border-slate-800/80 bg-slate-950/50">
+
+    <div
+        class="mx-auto flex max-w-7xl flex-col items-center
+               justify-between gap-4 px-4 py-8 text-center
+               sm:px-6 md:flex-row md:text-left lg:px-8"
+    >
+
+        <div class="flex items-center gap-3">
+
+            <img
+                src="img/branding/logo.png"
+                alt=""
+                class="h-9 w-9 object-contain opacity-80"
+            >
+
+            <div>
+                <p class="text-xs font-bold text-slate-300">
+                    Programación Para Todos
+                </p>
+
+                <p class="font-mono text-[10px] text-slate-600">
+                    Aprende • Practica • Crea
+                </p>
+            </div>
+
+        </div>
+
+
+        <p class="text-xs text-slate-600">
+            © <span id="current-year"></span>
+            Programación Para Todos.
+        </p>
+
+    </div>
+
+</footer>
+
+
+
+    <!-- ======================================================
+     JAVASCRIPT
+     El orden es importante.
+     ====================================================== -->
+
+    <script src="data/cursos.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/cursos.js"></script>
+    <script src="js/ubicacion.js"></script>
+    <script src="js/calendario.js"></script>
+
+</body>
 </html>
