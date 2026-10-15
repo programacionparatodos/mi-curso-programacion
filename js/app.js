@@ -6,113 +6,41 @@
    ========================================================= */
 
 function inicializarMenuMovil() {
-
-    const menuButton = document.getElementById("menu-button");
+    const menuButton = document.getElementById("menu-button") ||
+                       document.getElementById("mobile-menu-button");
     const mobileMenu = document.getElementById("mobile-menu");
-
-    // Algunas páginas podrían no tener menú.
     if (!menuButton || !mobileMenu) return;
 
+    const icono = menuButton.querySelector("i");
+    const mediaDesktop = window.matchMedia("(min-width: 1024px)");
 
-    function abrirMenu() {
-
-        mobileMenu.classList.remove("hidden");
-
-        menuButton.setAttribute(
-            "aria-expanded",
-            "true"
-        );
-
-        menuButton.setAttribute(
-            "aria-label",
-            "Cerrar menú"
-        );
-
-        menuButton.innerHTML =
-            '<i class="bi bi-x-lg text-lg"></i>';
+    function cambiarEstado(abierto) {
+        mobileMenu.classList.toggle("hidden", !abierto);
+        menuButton.setAttribute("aria-expanded", String(abierto));
+        menuButton.setAttribute("aria-label", abierto ? "Cerrar menú" : "Abrir menú");
+        if (icono) {
+            icono.classList.toggle("bi-list", !abierto);
+            icono.classList.toggle("bi-x-lg", abierto);
+        }
     }
 
-
-    function cerrarMenu() {
-
-        mobileMenu.classList.add("hidden");
-
-        menuButton.setAttribute(
-            "aria-expanded",
-            "false"
-        );
-
-        menuButton.setAttribute(
-            "aria-label",
-            "Abrir menú"
-        );
-
-        menuButton.innerHTML =
-            '<i class="bi bi-list text-xl"></i>';
-    }
-
-
+    cambiarEstado(false);
     menuButton.addEventListener("click", () => {
-
-        const menuAbierto =
-            !mobileMenu.classList.contains("hidden");
-
-        if (menuAbierto) {
-            cerrarMenu();
-        } else {
-            abrirMenu();
-        }
-
+        cambiarEstado(mobileMenu.classList.contains("hidden"));
     });
-
-
-    /*
-     * Cierra el menú cuando el usuario selecciona
-     * alguna opción de navegación.
-     */
-
-    mobileMenu
-        .querySelectorAll("a")
-        .forEach((enlace) => {
-
-            enlace.addEventListener(
-                "click",
-                cerrarMenu
-            );
-
-        });
-
-
-    /*
-     * Si pasamos de móvil a escritorio con el menú
-     * abierto, lo restablecemos.
-     */
-
-    window.addEventListener("resize", () => {
-
-        if (window.innerWidth >= 1024) {
-            cerrarMenu();
-        }
-
+    mobileMenu.querySelectorAll("a").forEach(enlace => {
+        enlace.addEventListener("click", () => cambiarEstado(false));
     });
-
-
-    /*
-     * Permite cerrar el menú utilizando ESC.
-     */
-
-    document.addEventListener("keydown", (evento) => {
-
-        if (
-            evento.key === "Escape" &&
-            !mobileMenu.classList.contains("hidden")
-        ) {
-            cerrarMenu();
+    document.addEventListener("keydown", evento => {
+        if (evento.key === "Escape" && !mobileMenu.classList.contains("hidden")) {
+            cambiarEstado(false);
             menuButton.focus();
         }
-
     });
-
+    // Compatible con navegadores móviles y cambios de orientación.
+    const alCambiar = () => { if (mediaDesktop.matches) cambiarEstado(false); };
+    if (mediaDesktop.addEventListener) mediaDesktop.addEventListener("change", alCambiar);
+    else mediaDesktop.addListener(alCambiar);
 }
 
 

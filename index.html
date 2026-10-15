@@ -32,6 +32,8 @@
 </head>
 
 <body class="bg-slate-950 text-slate-100 min-h-screen">
+  <a class="ppt-skip-link" href="#contenido-principal">Saltar al contenido</a>
+
 
   <!-- =====================================================
        NAVEGACIÓN
@@ -218,7 +220,37 @@
        CONTENIDO PRINCIPAL
        ===================================================== -->
 
-  <main>
+  <main id="contenido-principal">
+
+    <!-- ACCESO RÁPIDO A LA COMUNIDAD -->
+    <section id="redes-sociales" aria-labelledby="redes-titulo" class="ppt-social-section relative overflow-hidden border-b border-slate-800/70 px-4 sm:px-6 lg:px-8 py-7 sm:py-9">
+      <div class="max-w-7xl mx-auto relative z-10">
+        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-5">
+          <div><p class="font-mono text-[10px] tracking-widest text-amber-400 font-bold">// APRENDEMOS EN COMUNIDAD</p><h2 id="redes-titulo" class="text-2xl sm:text-3xl font-black text-white tracking-tight">¡Únete a nuestra comunidad! <span aria-hidden="true">🚀</span></h2></div>
+          <a href="#tiktok-live" class="inline-flex items-center gap-2 text-xs font-bold text-amber-400 hover:text-amber-300"> <i class="bi bi-broadcast"></i> Ver horarios de transmisiones <i class="bi bi-arrow-down"></i></a>
+        </div>
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-3">        <a href="https://chat.whatsapp.com/KduiLWEt4zvGnMiOmYEStg?s=cl&p=a&mlu=4&ilr=4" target="_blank" rel="noopener noreferrer" aria-label="Abrir WhatsApp" class="ppt-social-link group flex items-center gap-2 sm:gap-3 rounded-xl border border-slate-700/70 bg-slate-900/75 px-2.5 py-3 sm:px-4 transition hover:-translate-y-0.5 hover:border-emerald-400/60 hover:bg-slate-800/90 focus-visible:outline-2 focus-visible:outline-amber-400">
+          <span class="flex h-9 w-9 sm:h-10 sm:w-10 shrink-0 items-center justify-center rounded-xl bg-emerald-500/15 text-emerald-400 text-xl"><i class="bi bi-whatsapp" aria-hidden="true"></i></span>
+          <span class="min-w-0 flex-1"><strong class="block text-sm text-white">WhatsApp</strong><span class="hidden sm:block text-[11px] text-slate-400 truncate">Grupo de avisos</span></span>
+          <i class="bi bi-arrow-up-right text-slate-500 group-hover:text-emerald-400" aria-hidden="true"></i>
+        </a>
+        <a href="https://t.me/ProgramacionParaTodos" target="_blank" rel="noopener noreferrer" aria-label="Abrir Telegram" class="ppt-social-link group flex items-center gap-2 sm:gap-3 rounded-xl border border-slate-700/70 bg-slate-900/75 px-2.5 py-3 sm:px-4 transition hover:-translate-y-0.5 hover:border-sky-400/60 hover:bg-slate-800/90 focus-visible:outline-2 focus-visible:outline-amber-400">
+          <span class="flex h-9 w-9 sm:h-10 sm:w-10 shrink-0 items-center justify-center rounded-xl bg-sky-500/15 text-sky-400 text-xl"><i class="bi bi-telegram" aria-hidden="true"></i></span>
+          <span class="min-w-0 flex-1"><strong class="block text-sm text-white">Telegram</strong><span class="hidden sm:block text-[11px] text-slate-400 truncate">Material gratuito</span></span>
+          <i class="bi bi-arrow-up-right text-slate-500 group-hover:text-sky-400" aria-hidden="true"></i>
+        </a>
+        <a href="https://youtube.com/@programacionparatodos?si=RKkNZYdPl4ZWtQp_" target="_blank" rel="noopener noreferrer" aria-label="Abrir YouTube" class="ppt-social-link group flex items-center gap-2 sm:gap-3 rounded-xl border border-slate-700/70 bg-slate-900/75 px-2.5 py-3 sm:px-4 transition hover:-translate-y-0.5 hover:border-rose-400/60 hover:bg-slate-800/90 focus-visible:outline-2 focus-visible:outline-amber-400">
+          <span class="flex h-9 w-9 sm:h-10 sm:w-10 shrink-0 items-center justify-center rounded-xl bg-rose-500/15 text-rose-400 text-xl"><i class="bi bi-youtube" aria-hidden="true"></i></span>
+          <span class="min-w-0 flex-1"><strong class="block text-sm text-white">YouTube</strong><span class="hidden sm:block text-[11px] text-slate-400 truncate">Clases y tutoriales</span></span>
+          <i class="bi bi-arrow-up-right text-slate-500 group-hover:text-rose-400" aria-hidden="true"></i>
+        </a>
+        <a href="https://github.com/programacionparatodos?tab=repositories" target="_blank" rel="noopener noreferrer" aria-label="Abrir GitHub" class="ppt-social-link group flex items-center gap-2 sm:gap-3 rounded-xl border border-slate-700/70 bg-slate-900/75 px-2.5 py-3 sm:px-4 transition hover:-translate-y-0.5 hover:border-violet-400/60 hover:bg-slate-800/90 focus-visible:outline-2 focus-visible:outline-amber-400">
+          <span class="flex h-9 w-9 sm:h-10 sm:w-10 shrink-0 items-center justify-center rounded-xl bg-violet-500/15 text-violet-400 text-xl"><i class="bi bi-github" aria-hidden="true"></i></span>
+          <span class="min-w-0 flex-1"><strong class="block text-sm text-white">GitHub</strong><span class="hidden sm:block text-[11px] text-slate-400 truncate">Códigos y ejercicios</span></span>
+          <i class="bi bi-arrow-up-right text-slate-500 group-hover:text-violet-400" aria-hidden="true"></i>
+        </a></div>
+      </div>
+    </section>
 
     <!-- ===================================================
          HERO
@@ -538,17 +570,6 @@
         </article>
 
       </div>
-    </section>
-
-    <!-- ===================================================
-     TIKTOK LIVE
-     =================================================== -->
-
-    <section
-      id="tiktok-live"
-      class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16"
-    >
-      <div id="live-calendar"></div>
     </section>
 
     <!-- ===================================================
@@ -1179,263 +1200,15 @@
     </section>
 
 
-    <!-- ===================================================
-         COMUNIDAD
-         =================================================== -->
-
-    <section
-      class="max-w-7xl mx-auto
-             px-4 sm:px-6 lg:px-8
-             py-12 sm:py-16"
-    >
-
-      <div
-        class="ppt-card overflow-hidden"
-      >
-        <div
-          class="grid lg:grid-cols-[.7fr_1.3fr]
-                 items-center"
-        >
-
-          <!-- QuirCode -->
-          <div
-            class="relative min-h-[280px]
-                   sm:min-h-[330px]
-                   flex items-end justify-center
-                   bg-gradient-to-tr
-                   from-slate-950
-                   via-slate-900/50
-                   to-amber-500/[0.04]"
-          >
-            <div
-              class="absolute w-52 h-52
-                     bg-amber-500/10
-                     blur-3xl rounded-full"
-            ></div>
-
-            <img
-              src="img/quircode/comunidad.png"
-              alt="QuirCode invitando a la comunidad"
-              class="relative z-10
-                     max-h-[280px] sm:max-h-[330px]
-                     object-contain"
-            />
-          </div>
-
-
-          <!-- Contenido -->
-          <div
-            class="p-6 sm:p-8 lg:p-12"
-          >
-            <p
-              class="font-mono text-[10px]
-                     font-bold tracking-widest
-                     text-amber-400"
-            >
-              &gt; COMUNIDAD_
-            </p>
-
-            <h2
-              class="text-2xl sm:text-3xl
-                     font-black mt-3"
-            >
-              Aprender programación es mejor
-              cuando no lo haces solo.
-            </h2>
-
-            <p
-              class="text-sm text-slate-400
-                     leading-relaxed mt-4
-                     max-w-2xl"
-            >
-              Forma parte de Programación Para Todos,
-              comparte conocimientos, encuentra material
-              y continúa aprendiendo junto a otros
-              estudiantes y desarrolladores.
-            </p>
-
-
-            <a
-              href="comunidad.html"
-              class="ppt-button-primary
-                     px-5 py-3 text-sm
-                     mt-7"
-            >
-              <i class="bi bi-people-fill"></i>
-              Conocer la Comunidad
-            </a>
-          </div>
-
-        </div>
+    <!-- HORARIOS DE TRANSMISIONES: acceso visible desde el inicio -->
+    <section id="tiktok-live" aria-labelledby="titulo-tiktok-live" class="ppt-live-section relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 scroll-mt-20">
+      <div class="mb-7 flex flex-wrap items-end justify-between gap-4">
+        <div><p class="font-mono text-xs font-bold text-pink-400">// EN VIVO EN TIKTOK</p><h2 id="titulo-tiktok-live" class="mt-2 text-3xl sm:text-4xl font-black text-white tracking-tight">Horarios de transmisiones</h2><p class="mt-1 text-sm text-slate-400">Selecciona tu continente y país para ver los horarios en tu zona.</p></div>
+        <a href="#live-calendar" class="inline-flex items-center gap-2 rounded-full border border-pink-500/30 bg-pink-500/10 px-4 py-2 text-xs font-bold text-pink-300"><i class="bi bi-clock"></i> Horario internacional</a>
       </div>
+      <div id="live-calendar" aria-live="polite"><p class="text-sm text-slate-400">Cargando horarios de transmisiones…</p></div>
     </section>
 
-
-    <!-- ===================================================
-         REDES SOCIALES
-         =================================================== -->
-
-    <section
-      class="max-w-7xl mx-auto
-             px-4 sm:px-6 lg:px-8
-             py-12 sm:py-16"
-    >
-
-      <div class="text-center max-w-2xl mx-auto mb-8">
-        <p
-          class="font-mono text-[10px]
-                 font-bold tracking-[0.18em]
-                 text-amber-400"
-        >
-          // SIGAMOS CONECTADOS
-        </p>
-
-        <h2
-          class="text-2xl sm:text-3xl
-                 font-black mt-2"
-        >
-          Encuéntranos en nuestras redes
-        </h2>
-
-        <p
-          class="text-sm text-slate-400 mt-3"
-        >
-          Contenido, clases, código, novedades y espacios
-          para compartir con la comunidad.
-        </p>
-      </div>
-
-
-      <div
-        class="grid grid-cols-2 lg:grid-cols-4
-               gap-3 sm:gap-4"
-      >
-
-        <!-- WhatsApp -->
-        <a
-          href="https://chat.whatsapp.com/KduiLWEt4zvGnMiOmYEStg?s=cl&p=a&mlu=4&ilr=4"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="ppt-card ppt-card-hover
-                 p-5 sm:p-6
-                 text-center group"
-        >
-          <i
-            class="bi bi-whatsapp
-                   text-2xl sm:text-3xl
-                   text-emerald-400"
-          ></i>
-
-          <h3
-            class="font-bold text-sm
-                   text-slate-200 mt-3"
-          >
-            WhatsApp
-          </h3>
-
-          <p
-            class="hidden sm:block
-                   text-[11px] text-slate-500 mt-1"
-          >
-            Comunidad y avisos
-          </p>
-        </a>
-
-
-        <!-- Telegram -->
-        <a
-          href="https://t.me/ProgramacionParaTodos"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="ppt-card ppt-card-hover
-                 p-5 sm:p-6
-                 text-center group"
-        >
-          <i
-            class="bi bi-telegram
-                   text-2xl sm:text-3xl
-                   text-sky-400"
-          ></i>
-
-          <h3
-            class="font-bold text-sm
-                   text-slate-200 mt-3"
-          >
-            Telegram
-          </h3>
-
-          <p
-            class="hidden sm:block
-                   text-[11px] text-slate-500 mt-1"
-          >
-            Material y novedades
-          </p>
-        </a>
-
-
-        <!-- YouTube -->
-        <a
-          href="https://youtube.com/@programacionparatodos?si=RKkNZYdPl4ZWtQp_"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="ppt-card ppt-card-hover
-                 p-5 sm:p-6
-                 text-center group"
-        >
-          <i
-            class="bi bi-youtube
-                   text-2xl sm:text-3xl
-                   text-rose-400"
-          ></i>
-
-          <h3
-            class="font-bold text-sm
-                   text-slate-200 mt-3"
-          >
-            YouTube
-          </h3>
-
-          <p
-            class="hidden sm:block
-                   text-[11px] text-slate-500 mt-1"
-          >
-            Cursos y tutoriales
-          </p>
-        </a>
-
-
-        <!-- GitHub -->
-        <a
-          href="https://github.com/programacionparatodos?tab=repositories"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="ppt-card ppt-card-hover
-                 p-5 sm:p-6
-                 text-center group"
-        >
-          <i
-            class="bi bi-github
-                   text-2xl sm:text-3xl
-                   text-slate-200"
-          ></i>
-
-          <h3
-            class="font-bold text-sm
-                   text-slate-200 mt-3"
-          >
-            GitHub
-          </h3>
-
-          <p
-            class="hidden sm:block
-                   text-[11px] text-slate-500 mt-1"
-          >
-            Código y ejercicios
-          </p>
-        </a>
-
-      </div>
-    </section>
 
   </main>
 

@@ -16,6 +16,8 @@
    ========================================================= */
 
 
+const PAISES_HORARIOS = [["AF","Afganistán","Asia",["Asia/Kabul"]],["AL","Albania","Europa",["Europe/Tirane"]],["DE","Alemania","Europa",["Europe/Berlin","Europe/Busingen"]],["AD","Andorra","Europa",["Europe/Andorra"]],["AO","Angola","África",["Africa/Luanda"]],["AI","Anguila","América",["America/Anguilla"]],["AG","Antigua y Barbuda","América",["America/Antigua"]],["AQ","Antártida","Antártida",["Antarctica/McMurdo","Antarctica/Casey","Antarctica/Davis","Antarctica/DumontDUrville","Antarctica/Mawson","Antarctica/Palmer","Antarctica/Rothera","Antarctica/Syowa","Antarctica/Troll","Antarctica/Vostok"]],["SA","Arabia Saudí","Asia",["Asia/Riyadh"]],["DZ","Argelia","África",["Africa/Algiers"]],["AR","Argentina","América",["America/Argentina/Buenos_Aires","America/Argentina/Cordoba","America/Argentina/Salta","America/Argentina/Jujuy","America/Argentina/Tucuman","America/Argentina/Catamarca","America/Argentina/La_Rioja","America/Argentina/San_Juan","America/Argentina/Mendoza","America/Argentina/San_Luis","America/Argentina/Rio_Gallegos","America/Argentina/Ushuaia"]],["AM","Armenia","Asia",["Asia/Yerevan"]],["AW","Aruba","América",["America/Aruba"]],["AU","Australia","Oceanía",["Australia/Lord_Howe","Antarctica/Macquarie","Australia/Hobart","Australia/Melbourne","Australia/Sydney","Australia/Broken_Hill","Australia/Brisbane","Australia/Lindeman","Australia/Adelaide","Australia/Darwin","Australia/Perth","Australia/Eucla"]],["AT","Austria","Europa",["Europe/Vienna"]],["AZ","Azerbaiyán","Asia",["Asia/Baku"]],["BS","Bahamas","América",["America/Nassau"]],["BD","Bangladés","Asia",["Asia/Dhaka"]],["BB","Barbados","América",["America/Barbados"]],["BH","Baréin","Asia",["Asia/Bahrain"]],["BZ","Belice","América",["America/Belize"]],["BJ","Benín","África",["Africa/Porto-Novo"]],["BM","Bermudas","América",["Atlantic/Bermuda"]],["BY","Bielorrusia","Europa",["Europe/Minsk"]],["BO","Bolivia","América",["America/La_Paz"]],["BA","Bosnia y Herzegovina","Europa",["Europe/Sarajevo"]],["BW","Botsuana","África",["Africa/Gaborone"]],["BR","Brasil","América",["America/Noronha","America/Belem","America/Fortaleza","America/Recife","America/Araguaina","America/Maceio","America/Bahia","America/Sao_Paulo","America/Campo_Grande","America/Cuiaba","America/Santarem","America/Porto_Velho","America/Boa_Vista","America/Manaus","America/Eirunepe","America/Rio_Branco"]],["BN","Brunéi","Asia",["Asia/Brunei"]],["BG","Bulgaria","Europa",["Europe/Sofia"]],["BF","Burkina Faso","África",["Africa/Ouagadougou"]],["BI","Burundi","África",["Africa/Bujumbura"]],["BT","Bután","Asia",["Asia/Thimphu"]],["BE","Bélgica","Europa",["Europe/Brussels"]],["CV","Cabo Verde","África",["Atlantic/Cape_Verde"]],["KH","Camboya","Asia",["Asia/Phnom_Penh"]],["CM","Camerún","África",["Africa/Douala"]],["CA","Canadá","América",["America/St_Johns","America/Halifax","America/Glace_Bay","America/Moncton","America/Goose_Bay","America/Blanc-Sablon","America/Toronto","America/Iqaluit","America/Atikokan","America/Winnipeg","America/Resolute","America/Rankin_Inlet","America/Regina","America/Swift_Current","America/Edmonton","America/Cambridge_Bay","America/Inuvik","America/Vancouver","America/Creston","America/Dawson_Creek","America/Fort_Nelson","America/Whitehorse","America/Dawson"]],["BQ","Caribe neerlandés","América",["America/Kralendijk"]],["QA","Catar","Asia",["Asia/Qatar"]],["TD","Chad","África",["Africa/Ndjamena"]],["CZ","Chequia","Europa",["Europe/Prague"]],["CL","Chile","América",["America/Santiago","America/Coyhaique","America/Punta_Arenas","Pacific/Easter"]],["CN","China","Asia",["Asia/Shanghai","Asia/Urumqi"]],["CY","Chipre","Asia",["Asia/Nicosia","Asia/Famagusta"]],["VA","Ciudad del Vaticano","Europa",["Europe/Vatican"]],["CO","Colombia","América",["America/Bogota"]],["KM","Comoras","África",["Indian/Comoro"]],["CG","Congo","África",["Africa/Brazzaville"]],["KP","Corea del Norte","Asia",["Asia/Pyongyang"]],["KR","Corea del Sur","Asia",["Asia/Seoul"]],["CR","Costa Rica","América",["America/Costa_Rica"]],["HR","Croacia","Europa",["Europe/Zagreb"]],["CU","Cuba","América",["America/Havana"]],["CW","Curazao","América",["America/Curacao"]],["CI","Côte d’Ivoire","África",["Africa/Abidjan"]],["DK","Dinamarca","Europa",["Europe/Copenhagen"]],["DM","Dominica","América",["America/Dominica"]],["EC","Ecuador","América",["America/Guayaquil","Pacific/Galapagos"]],["EG","Egipto","África",["Africa/Cairo"]],["SV","El Salvador","América",["America/El_Salvador"]],["AE","Emiratos Árabes Unidos","Asia",["Asia/Dubai"]],["ER","Eritrea","África",["Africa/Asmara"]],["SK","Eslovaquia","Europa",["Europe/Bratislava"]],["SI","Eslovenia","Europa",["Europe/Ljubljana"]],["ES","España","Europa",["Europe/Madrid","Africa/Ceuta","Atlantic/Canary"]],["US","Estados Unidos","América",["America/New_York","America/Detroit","America/Kentucky/Louisville","America/Kentucky/Monticello","America/Indiana/Indianapolis","America/Indiana/Vincennes","America/Indiana/Winamac","America/Indiana/Marengo","America/Indiana/Petersburg","America/Indiana/Vevay","America/Chicago","America/Indiana/Tell_City","America/Indiana/Knox","America/Menominee","America/North_Dakota/Center","America/North_Dakota/New_Salem","America/North_Dakota/Beulah","America/Denver","America/Boise","America/Phoenix","America/Los_Angeles","America/Anchorage","America/Juneau","America/Sitka","America/Metlakatla","America/Yakutat","America/Nome","America/Adak","Pacific/Honolulu"]],["EE","Estonia","Europa",["Europe/Tallinn"]],["SZ","Esuatini","África",["Africa/Mbabane"]],["ET","Etiopía","África",["Africa/Addis_Ababa"]],["PH","Filipinas","Asia",["Asia/Manila"]],["FI","Finlandia","Europa",["Europe/Helsinki"]],["FJ","Fiyi","Oceanía",["Pacific/Fiji"]],["FR","Francia","Europa",["Europe/Paris"]],["GA","Gabón","África",["Africa/Libreville"]],["GM","Gambia","África",["Africa/Banjul"]],["GE","Georgia","Asia",["Asia/Tbilisi"]],["GH","Ghana","África",["Africa/Accra"]],["GI","Gibraltar","Europa",["Europe/Gibraltar"]],["GD","Granada","América",["America/Grenada"]],["GR","Grecia","Europa",["Europe/Athens"]],["GL","Groenlandia","América",["America/Nuuk","America/Danmarkshavn","America/Scoresbysund","America/Thule"]],["GP","Guadalupe","América",["America/Guadeloupe"]],["GU","Guam","Oceanía",["Pacific/Guam"]],["GT","Guatemala","América",["America/Guatemala"]],["GF","Guayana Francesa","América",["America/Cayenne"]],["GG","Guernesey","Europa",["Europe/Guernsey"]],["GN","Guinea","África",["Africa/Conakry"]],["GQ","Guinea Ecuatorial","África",["Africa/Malabo"]],["GW","Guinea-Bisáu","África",["Africa/Bissau"]],["GY","Guyana","América",["America/Guyana"]],["HT","Haití","América",["America/Port-au-Prince"]],["HN","Honduras","América",["America/Tegucigalpa"]],["HU","Hungría","Europa",["Europe/Budapest"]],["IN","India","Asia",["Asia/Kolkata"]],["ID","Indonesia","Asia",["Asia/Jakarta","Asia/Pontianak","Asia/Makassar","Asia/Jayapura"]],["IQ","Irak","Asia",["Asia/Baghdad"]],["IE","Irlanda","Europa",["Europe/Dublin"]],["IR","Irán","Asia",["Asia/Tehran"]],["IM","Isla de Man","Europa",["Europe/Isle_of_Man"]],["CX","Isla de Navidad","Asia",["Indian/Christmas"]],["NF","Isla Norfolk","Oceanía",["Pacific/Norfolk"]],["IS","Islandia","Europa",["Atlantic/Reykjavik"]],["AX","Islas Aland","Europa",["Europe/Mariehamn"]],["KY","Islas Caimán","América",["America/Cayman"]],["CC","Islas Cocos","Asia",["Indian/Cocos"]],["CK","Islas Cook","Oceanía",["Pacific/Rarotonga"]],["FO","Islas Feroe","Europa",["Atlantic/Faroe"]],["GS","Islas Georgia del Sur y Sandwich del Sur","América",["Atlantic/South_Georgia"]],["FK","Islas Malvinas","América",["Atlantic/Stanley"]],["MP","Islas Marianas del Norte","Oceanía",["Pacific/Saipan"]],["MH","Islas Marshall","Oceanía",["Pacific/Majuro","Pacific/Kwajalein"]],["UM","Islas menores alejadas de EE. UU.","Oceanía",["Pacific/Midway","Pacific/Wake"]],["PN","Islas Pitcairn","Oceanía",["Pacific/Pitcairn"]],["SB","Islas Salomón","Oceanía",["Pacific/Guadalcanal"]],["TC","Islas Turcas y Caicos","América",["America/Grand_Turk"]],["VG","Islas Vírgenes Británicas","América",["America/Tortola"]],["VI","Islas Vírgenes de EE. UU.","América",["America/St_Thomas"]],["IL","Israel","Asia",["Asia/Jerusalem"]],["IT","Italia","Europa",["Europe/Rome"]],["JM","Jamaica","América",["America/Jamaica"]],["JP","Japón","Asia",["Asia/Tokyo"]],["JE","Jersey","Europa",["Europe/Jersey"]],["JO","Jordania","Asia",["Asia/Amman"]],["KZ","Kazajistán","Asia",["Asia/Almaty","Asia/Qyzylorda","Asia/Qostanay","Asia/Aqtobe","Asia/Aqtau","Asia/Atyrau","Asia/Oral"]],["KE","Kenia","África",["Africa/Nairobi"]],["KG","Kirguistán","Asia",["Asia/Bishkek"]],["KI","Kiribati","Oceanía",["Pacific/Tarawa","Pacific/Kanton","Pacific/Kiritimati"]],["KW","Kuwait","Asia",["Asia/Kuwait"]],["LA","Laos","Asia",["Asia/Vientiane"]],["LS","Lesoto","África",["Africa/Maseru"]],["LV","Letonia","Europa",["Europe/Riga"]],["LR","Liberia","África",["Africa/Monrovia"]],["LY","Libia","África",["Africa/Tripoli"]],["LI","Liechtenstein","Europa",["Europe/Vaduz"]],["LT","Lituania","Europa",["Europe/Vilnius"]],["LU","Luxemburgo","Europa",["Europe/Luxembourg"]],["LB","Líbano","Asia",["Asia/Beirut"]],["MK","Macedonia del Norte","Europa",["Europe/Skopje"]],["MG","Madagascar","África",["Indian/Antananarivo"]],["MY","Malasia","Asia",["Asia/Kuala_Lumpur","Asia/Kuching"]],["MW","Malaui","África",["Africa/Blantyre"]],["MV","Maldivas","Asia",["Indian/Maldives"]],["ML","Mali","África",["Africa/Bamako"]],["MT","Malta","Europa",["Europe/Malta"]],["MA","Marruecos","África",["Africa/Casablanca"]],["MQ","Martinica","América",["America/Martinique"]],["MU","Mauricio","África",["Indian/Mauritius"]],["MR","Mauritania","África",["Africa/Nouakchott"]],["YT","Mayotte","África",["Indian/Mayotte"]],["FM","Micronesia","Oceanía",["Pacific/Chuuk","Pacific/Pohnpei","Pacific/Kosrae"]],["MD","Moldavia","Europa",["Europe/Chisinau"]],["MN","Mongolia","Asia",["Asia/Ulaanbaatar","Asia/Hovd"]],["ME","Montenegro","Europa",["Europe/Podgorica"]],["MS","Montserrat","América",["America/Montserrat"]],["MZ","Mozambique","África",["Africa/Maputo"]],["MM","Myanmar (Birmania)","Asia",["Asia/Yangon"]],["MX","México","América",["America/Mexico_City","America/Cancun","America/Merida","America/Monterrey","America/Matamoros","America/Chihuahua","America/Ciudad_Juarez","America/Ojinaga","America/Mazatlan","America/Bahia_Banderas","America/Hermosillo","America/Tijuana"]],["MC","Mónaco","Europa",["Europe/Monaco"]],["NA","Namibia","África",["Africa/Windhoek"]],["NR","Nauru","Oceanía",["Pacific/Nauru"]],["NP","Nepal","Asia",["Asia/Kathmandu"]],["NI","Nicaragua","América",["America/Managua"]],["NG","Nigeria","África",["Africa/Lagos"]],["NU","Niue","Oceanía",["Pacific/Niue"]],["NO","Noruega","Europa",["Europe/Oslo"]],["NC","Nueva Caledonia","Oceanía",["Pacific/Noumea"]],["NZ","Nueva Zelanda","Oceanía",["Pacific/Auckland","Pacific/Chatham"]],["NE","Níger","África",["Africa/Niamey"]],["OM","Omán","Asia",["Asia/Muscat"]],["PK","Pakistán","Asia",["Asia/Karachi"]],["PW","Palaos","Oceanía",["Pacific/Palau"]],["PA","Panamá","América",["America/Panama"]],["PG","Papúa Nueva Guinea","Oceanía",["Pacific/Port_Moresby","Pacific/Bougainville"]],["PY","Paraguay","América",["America/Asuncion"]],["NL","Países Bajos","Europa",["Europe/Amsterdam"]],["PE","Perú","América",["America/Lima"]],["PF","Polinesia Francesa","Oceanía",["Pacific/Tahiti","Pacific/Marquesas","Pacific/Gambier"]],["PL","Polonia","Europa",["Europe/Warsaw"]],["PT","Portugal","Europa",["Europe/Lisbon","Atlantic/Madeira","Atlantic/Azores"]],["PR","Puerto Rico","América",["America/Puerto_Rico"]],["HK","RAE de Hong Kong (China)","Asia",["Asia/Hong_Kong"]],["MO","RAE de Macao (China)","Asia",["Asia/Macau"]],["GB","Reino Unido","Europa",["Europe/London"]],["CF","República Centroafricana","África",["Africa/Bangui"]],["CD","República Democrática del Congo","África",["Africa/Kinshasa","Africa/Lubumbashi"]],["DO","República Dominicana","América",["America/Santo_Domingo"]],["RE","Reunión","África",["Indian/Reunion"]],["RW","Ruanda","África",["Africa/Kigali"]],["RO","Rumanía","Europa",["Europe/Bucharest"]],["RU","Rusia","Europa",["Europe/Kaliningrad","Europe/Moscow","Europe/Kirov","Europe/Volgograd","Europe/Astrakhan","Europe/Saratov","Europe/Ulyanovsk","Europe/Samara","Asia/Yekaterinburg","Asia/Omsk","Asia/Novosibirsk","Asia/Barnaul","Asia/Tomsk","Asia/Novokuznetsk","Asia/Krasnoyarsk","Asia/Irkutsk","Asia/Chita","Asia/Yakutsk","Asia/Khandyga","Asia/Vladivostok","Asia/Ust-Nera","Asia/Magadan","Asia/Sakhalin","Asia/Srednekolymsk","Asia/Kamchatka","Asia/Anadyr"]],["WS","Samoa","Oceanía",["Pacific/Apia"]],["AS","Samoa Americana","Oceanía",["Pacific/Pago_Pago"]],["BL","San Bartolomé","América",["America/St_Barthelemy"]],["KN","San Cristóbal y Nieves","América",["America/St_Kitts"]],["SM","San Marino","Europa",["Europe/San_Marino"]],["MF","San Martín","América",["America/Marigot"]],["PM","San Pedro y Miquelón","América",["America/Miquelon"]],["VC","San Vicente y las Granadinas","América",["America/St_Vincent"]],["SH","Santa Elena","África",["Atlantic/St_Helena"]],["LC","Santa Lucía","América",["America/St_Lucia"]],["ST","Santo Tomé y Príncipe","África",["Africa/Sao_Tome"]],["SN","Senegal","África",["Africa/Dakar"]],["RS","Serbia","Europa",["Europe/Belgrade"]],["SC","Seychelles","África",["Indian/Mahe"]],["SL","Sierra Leona","África",["Africa/Freetown"]],["SG","Singapur","Asia",["Asia/Singapore"]],["SX","Sint Maarten","América",["America/Lower_Princes"]],["SY","Siria","Asia",["Asia/Damascus"]],["SO","Somalia","África",["Africa/Mogadishu"]],["LK","Sri Lanka","Asia",["Asia/Colombo"]],["ZA","Sudáfrica","África",["Africa/Johannesburg"]],["SD","Sudán","África",["Africa/Khartoum"]],["SS","Sudán del Sur","África",["Africa/Juba"]],["SE","Suecia","Europa",["Europe/Stockholm"]],["CH","Suiza","Europa",["Europe/Zurich"]],["SR","Surinam","América",["America/Paramaribo"]],["SJ","Svalbard y Jan Mayen","Europa",["Arctic/Longyearbyen"]],["EH","Sáhara Occidental","África",["Africa/El_Aaiun"]],["TH","Tailandia","Asia",["Asia/Bangkok"]],["TW","Taiwán","Asia",["Asia/Taipei"]],["TZ","Tanzania","África",["Africa/Dar_es_Salaam"]],["TJ","Tayikistán","Asia",["Asia/Dushanbe"]],["IO","Territorio Británico del Océano Índico","Asia",["Indian/Chagos"]],["TF","Territorios Australes Franceses","Antártida",["Indian/Kerguelen"]],["PS","Territorios Palestinos","Asia",["Asia/Gaza","Asia/Hebron"]],["TL","Timor-Leste","Asia",["Asia/Dili"]],["TG","Togo","África",["Africa/Lome"]],["TK","Tokelau","Oceanía",["Pacific/Fakaofo"]],["TO","Tonga","Oceanía",["Pacific/Tongatapu"]],["TT","Trinidad y Tobago","América",["America/Port_of_Spain"]],["TM","Turkmenistán","Asia",["Asia/Ashgabat"]],["TR","Turquía","Asia",["Europe/Istanbul"]],["TV","Tuvalu","Oceanía",["Pacific/Funafuti"]],["TN","Túnez","África",["Africa/Tunis"]],["UA","Ucrania","Europa",["Europe/Simferopol","Europe/Kyiv"]],["UG","Uganda","África",["Africa/Kampala"]],["UY","Uruguay","América",["America/Montevideo"]],["UZ","Uzbekistán","Asia",["Asia/Samarkand","Asia/Tashkent"]],["VU","Vanuatu","Oceanía",["Pacific/Efate"]],["VE","Venezuela","América",["America/Caracas"]],["VN","Vietnam","Asia",["Asia/Ho_Chi_Minh"]],["WF","Wallis y Futuna","Oceanía",["Pacific/Wallis"]],["YE","Yemen","Asia",["Asia/Aden"]],["DJ","Yibuti","África",["Africa/Djibouti"]],["ZM","Zambia","África",["Africa/Lusaka"]],["ZW","Zimbabue","África",["Africa/Harare"]]];
+
 /* =========================================================
    CONFIGURACIÓN
    ========================================================= */
@@ -1479,176 +1481,98 @@ function crearEtiquetaZona(
 
 
 
-function cargarSelectorPaises() {
-
-    /*
-     * Conservamos el ID #country-select para no tener que
-     * modificar todavía cursos.html.
-     *
-     * Sin embargo, desde ahora este selector representa
-     * ZONAS HORARIAS y no países.
-     */
-
-    const selector =
-        document.getElementById(
-            "country-select"
-        );
-
-
-    if (!selector) {
-        return;
-    }
-
-
-    const zonas =
-        obtenerZonasHorariasDisponibles();
-
-
-    /*
-     * Aseguramos que la zona detectada aparezca aunque
-     * el navegador no implemente supportedValuesOf().
-     */
-
-    const conjunto =
-        new Set([
-            UBICACION.zonaDetectada,
-            UBICACION.zonaHoraria,
-            ...zonas
-        ]);
-
-
-    const zonasOrdenadas =
-        [...conjunto]
-            .filter(
-                zona =>
-                    zonaHorariaValida(
-                        zona
-                    )
-            )
-            .sort(
-                (a, b) =>
-                    crearEtiquetaZona(a)
-                        .localeCompare(
-                            crearEtiquetaZona(b),
-                            "es"
-                        )
-            );
-
-
-    selector.innerHTML = `
-
-        <option
-            value="__AUTO__"
-        >
-            🌎 Automático · ${UBICACION.zonaDetectada}
-        </option>
-
-        ${
-            zonasOrdenadas
-
-                .map(
-                    zona => `
-
-                        <option
-                            value="${zona}"
-                        >
-                            ${crearEtiquetaZona(zona)}
-                        </option>
-
-                    `
-                )
-
-                .join("")
-        }
-
-    `;
-
-
-    sincronizarSelectorZona();
-
-
-    /*
-     * Evitamos registrar el listener más de una vez.
-     */
-
-    if (
-        selector.dataset
-            .zonaListener ===
-        "true"
-    ) {
-
-        return;
-
-    }
-
-
-    selector.dataset
-        .zonaListener =
-        "true";
-
-
-    selector.addEventListener(
-        "change",
-        () => {
-
-            if (
-                selector.value ===
-                "__AUTO__"
-            ) {
-
-                usarZonaHorariaAutomatica();
-
-                return;
-
-            }
-
-
-            cambiarZonaHoraria(
-                selector.value
-            );
-
-        }
-    );
-
+function opcionesSeguras(select, opciones, placeholder) {
+    select.replaceChildren();
+    if (placeholder) select.add(new Option(placeholder, ""));
+    opciones.forEach(([etiqueta, valor]) => select.add(new Option(etiqueta, valor)));
 }
 
+function obtenerPaisPorZona(zona) {
+    return PAISES_HORARIOS.find(p => p[3].includes(zona)) || null;
+}
 
+function montarSelectorGeografico(contenedor, prefijo = "horarios") {
+    if (!contenedor) return;
+    const id = prefijo.replace(/[^a-z0-9-]/gi, "-");
+    contenedor.innerHTML = `
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <label class="block text-xs font-bold text-slate-300">🌍 Continente
+                <select id="${id}-continente" class="mt-2 w-full rounded-xl border border-slate-700 bg-slate-950 p-3 text-slate-100"></select>
+            </label>
+            <label class="block text-xs font-bold text-slate-300">🏳️ País
+                <select id="${id}-pais" class="mt-2 w-full rounded-xl border border-slate-700 bg-slate-950 p-3 text-slate-100"></select>
+            </label>
+        </div>
+        <label class="mt-3 block text-xs font-bold text-slate-300" id="${id}-zona-etiqueta">📍 Ciudad o zona horaria
+            <select id="${id}-zona" class="mt-2 w-full rounded-xl border border-slate-700 bg-slate-950 p-3 text-slate-100"></select>
+        </label>
+        <button type="button" id="${id}-automatico" class="mt-3 rounded-lg border border-amber-500/40 bg-amber-500/10 px-4 py-2 text-xs font-bold text-amber-300 hover:bg-amber-500/20">↻ Usar mi zona automática</button>
+        <p class="mt-2 text-xs text-slate-400" id="${id}-estado" aria-live="polite"></p>`;
+    const continente = contenedor.querySelector(`#${id}-continente`);
+    const pais = contenedor.querySelector(`#${id}-pais`);
+    const zona = contenedor.querySelector(`#${id}-zona`);
+    const etiqueta = contenedor.querySelector(`#${id}-zona-etiqueta`);
+    const estado = contenedor.querySelector(`#${id}-estado`);
+    opcionesSeguras(continente, ["América","Europa","Asia","África","Oceanía","Antártida"].map(x => [x,x]));
+    function cargarPaises(codigo) {
+        const lista = PAISES_HORARIOS.filter(p => p[2] === continente.value);
+        opcionesSeguras(pais, lista.map(p => [p[1],p[0]]), "Selecciona tu país");
+        if (codigo && lista.some(p => p[0] === codigo)) pais.value = codigo;
+        cargarZonas();
+    }
+    function cargarZonas(zonaPreferida) {
+        const elegido = PAISES_HORARIOS.find(p => p[0] === pais.value);
+        const zonas = elegido ? elegido[3].filter(zonaHorariaValida) : [];
+        opcionesSeguras(zona, zonas.map(z => [z.split('/').slice(1).join(' / ').replaceAll('_',' ') + ' · ' + z,z]), "Selecciona tu ciudad / zona");
+        etiqueta.classList.toggle('hidden', zonas.length <= 1);
+        if (zonas.length === 1) zona.value = zonas[0];
+        if (zonaPreferida && zonas.includes(zonaPreferida)) zona.value = zonaPreferida;
+    }
+    function sincronizar() {
+        const actual = UBICACION.zonaHoraria;
+        const encontrado = obtenerPaisPorZona(actual);
+        if (encontrado) {
+            continente.value = encontrado[2];
+            cargarPaises(encontrado[0]);
+            cargarZonas(actual);
+        } else {
+            continente.value = "América";
+            cargarPaises();
+        }
+        estado.textContent = (UBICACION.modoAutomatico ? 'Detectado automáticamente: ' : 'Horario seleccionado: ') + actual;
+    }
+    continente.addEventListener('change', () => cargarPaises());
+    pais.addEventListener('change', () => {
+        cargarZonas();
+        const elegido = PAISES_HORARIOS.find(p => p[0] === pais.value);
+        if (elegido && elegido[3].filter(zonaHorariaValida).length === 1) cambiarZonaHoraria(zona.value);
+        else estado.textContent = 'Selecciona la ciudad o zona horaria para mostrar tus horarios.';
+    });
+    zona.addEventListener('change', () => { if (zona.value) cambiarZonaHoraria(zona.value); });
+    contenedor.querySelector(`#${id}-automatico`).addEventListener('click', usarZonaHorariaAutomatica);
+    window.addEventListener('ppt:cambio-zona-horaria', sincronizar);
+    sincronizar();
+}
 
-/* =========================================================
-   SINCRONIZAR SELECTOR
-   ========================================================= */
-
+function cargarSelectorPaises() {
+    const selector = document.getElementById('country-select');
+    if (!selector) return;
+    // Compatibilidad con páginas existentes que todavía contienen #country-select.
+    // Se conserva el ID, pero se muestra una interfaz accesible por continente y país.
+    const contenedor = document.createElement('div');
+    contenedor.id = 'selector-geografico-cursos';
+    selector.insertAdjacentElement('afterend', contenedor);
+    selector.classList.add('hidden');
+    montarSelectorGeografico(contenedor, 'cursos');
+}
 
 function sincronizarSelectorZona() {
-
-    const selector =
-        document.getElementById(
-            "country-select"
-        );
-
-
-    if (!selector) {
-        return;
+    const selector = document.getElementById('country-select');
+    if (selector && selector.options.length) {
+        const opcion = [...selector.options].find(o => o.value === UBICACION.zonaHoraria);
+        if (opcion) selector.value = opcion.value;
     }
-
-
-    if (
-        UBICACION.modoAutomatico
-    ) {
-
-        selector.value =
-            "__AUTO__";
-
-    } else {
-
-        selector.value =
-            UBICACION.zonaHoraria;
-
-    }
-
 }
-
-
 
 /* =========================================================
    ACTUALIZAR TARJETAS
